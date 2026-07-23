@@ -45,7 +45,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
       >
         {artigo.categoria}
       </Link>
-      <h1 className="mb-4 font-serif text-3xl italic leading-tight text-chumbo md:text-4xl">
+      <h1 className="mb-4 font-serif text-3xl leading-tight text-chumbo md:text-4xl">
         {artigo.titulo}
       </h1>
       <p className="mb-6 text-sm text-chumbo-claro">
@@ -93,7 +93,7 @@ function RelatedArticles({
 
   return (
     <div className="mt-14">
-      <h2 className="mb-4 font-serif text-xl italic text-chumbo">
+      <h2 className="mb-4 font-serif text-xl text-chumbo">
         Leia também
       </h2>
       <ul className="space-y-2">

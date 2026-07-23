@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-12">
       <section className="mb-14 text-center">
-        <h1 className="font-serif text-4xl italic text-chumbo md:text-5xl">
+        <h1 className="font-serif text-4xl text-chumbo md:text-5xl">
           Marmitas sem complicação
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-chumbo-claro">
@@ -18,7 +18,7 @@ export default function HomePage() {
       </section>
 
       <section>
-        <h2 className="mb-6 font-serif text-2xl italic text-chumbo">
+        <h2 className="mb-6 font-serif text-2xl text-chumbo">
           Artigos recentes
         </h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

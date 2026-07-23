@@ -16,7 +16,7 @@ export default function ArticleCard({ article }: { article: Article }) {
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">
         <span className="tag-pill w-fit">{article.categoria}</span>
-        <h3 className="font-serif text-lg italic leading-snug text-chumbo group-hover:text-salvia-escuro">
+        <h3 className="font-serif text-lg leading-snug text-chumbo group-hover:text-salvia-escuro">
           {article.titulo}
         </h3>
         <p className="line-clamp-3 flex-1 text-sm text-chumbo-claro">

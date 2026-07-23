@@ -37,7 +37,7 @@ export default function CategoriaPage({
   return (
     <div className="mx-auto max-w-5xl px-6 py-12">
       <span className="tag-pill mb-4 w-fit">{categoria}</span>
-      <h1 className="mb-8 font-serif text-3xl italic text-chumbo">
+      <h1 className="mb-8 font-serif text-3xl text-chumbo">
         {categoria}
       </h1>
       {artigos.length === 0 ? (

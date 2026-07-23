@@ -1,7 +1,7 @@
 export default function CTASection() {
   return (
     <div className="card mt-10 flex flex-col items-center gap-4 bg-salvia/10 p-8 text-center">
-      <h2 className="font-serif text-xl italic text-chumbo">
+      <h2 className="font-serif text-xl text-chumbo">
         Quer organizar de vez a sua rotina de marmitas?
       </h2>
       <p className="max-w-xl text-sm text-chumbo-claro">
