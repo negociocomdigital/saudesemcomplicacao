@@ -88,7 +88,7 @@ prompt específico para aquele artigo e rode o script de novo até 100% OK.
 ## Rotina automática diária
 
 Configurada como um cron local do Claude Code (`CronCreate`), disparando
-todos os dias às 9h07 (horário local) o prompt acima na íntegra. Isso roda
+todos os dias às 12h00 (horário local) o prompt acima na íntegra. Isso roda
 dentro desta mesma sessão/ambiente local — o mesmo padrão já usado no
 projeto irmão `artigos-ia`, que também gera conteúdo e publica via script
 local em vez de um agente de nuvem.
