@@ -9,7 +9,7 @@ import {
   getArticleSlugs,
   getCtaContent,
   slugify,
-  splitFirstParagraph,
+  splitIntroSection,
 } from "@/lib/articles";
 import PromoBanner from "@/components/PromoBanner";
 
@@ -39,7 +39,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
   const artigo = getArticleBySlug(params.slug);
   if (!artigo) notFound();
   const cta = getCtaContent(artigo);
-  const { primeiro, resto } = splitFirstParagraph(artigo.content);
+  const { primeiro, resto } = splitIntroSection(artigo.content);
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
@@ -60,13 +60,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         )}
       </p>
 
-      <div className="prose-artigo">
-        <MDXRemote source={primeiro} />
-      </div>
-
-      <PromoBanner cta={cta} />
-
-      <div className="card relative mb-8 mt-8 aspect-[3/2] w-full overflow-hidden">
+      <div className="card relative mb-8 aspect-[3/2] w-full overflow-hidden">
         <Image
           src={artigo.imagem_capa}
           alt={artigo.titulo}
@@ -76,6 +70,12 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
           className="object-cover"
         />
       </div>
+
+      <div className="prose-artigo">
+        <MDXRemote source={primeiro} />
+      </div>
+
+      <PromoBanner cta={cta} />
 
       {resto && (
         <div className="prose-artigo">

@@ -130,11 +130,24 @@ export function getCtaContent(artigo: ArticleFrontmatter): CtaConteudo {
   };
 }
 
-export function splitFirstParagraph(content: string): {
+// Divide o artigo em "introdução" (parágrafo de resposta direta + a
+// primeira seção de contexto) e "resto" — o banner de CTA entra entre os
+// dois blocos, depois da introdução completa, não logo após a 1ª frase.
+export function splitIntroSection(content: string): {
   primeiro: string;
   resto: string;
 } {
   const trimmed = content.trimStart();
+  const headingMatches = [...trimmed.matchAll(/\n##\s/g)];
+
+  if (headingMatches.length >= 2) {
+    const segundoTituloIdx = headingMatches[1].index!;
+    return {
+      primeiro: trimmed.slice(0, segundoTituloIdx).trimEnd(),
+      resto: trimmed.slice(segundoTituloIdx).trimStart(),
+    };
+  }
+
   const idx = trimmed.indexOf("\n\n");
   if (idx === -1) return { primeiro: trimmed, resto: "" };
   return {
