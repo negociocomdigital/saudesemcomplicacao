@@ -103,6 +103,19 @@ export function getCtaContent(artigo: ArticleFrontmatter): CtaConteudo {
   };
 }
 
+export function splitFirstParagraph(content: string): {
+  primeiro: string;
+  resto: string;
+} {
+  const trimmed = content.trimStart();
+  const idx = trimmed.indexOf("\n\n");
+  if (idx === -1) return { primeiro: trimmed, resto: "" };
+  return {
+    primeiro: trimmed.slice(0, idx),
+    resto: trimmed.slice(idx).trimStart(),
+  };
+}
+
 export function slugify(text: string): string {
   return text
     .normalize("NFD")
