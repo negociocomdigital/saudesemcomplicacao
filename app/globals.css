@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bege text-chumbo;
+  }
+  h1, h2, h3 {
+    @apply font-serif italic text-chumbo;
+  }
+}
+
+@layer components {
+  .btn-pill {
+    @apply inline-block rounded-pill bg-salvia px-6 py-3 font-sans text-sm font-semibold text-white transition-colors hover:bg-salvia-escuro;
+  }
+  .card {
+    @apply rounded-2xl bg-white shadow-sm ring-1 ring-black/5 overflow-hidden;
+  }
+  .tag-pill {
+    @apply inline-block rounded-pill bg-salvia/10 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-salvia-escuro;
+  }
+  .prose-artigo h2 {
+    @apply mt-8 mb-3 text-2xl;
+  }
+  .prose-artigo p {
+    @apply mb-4 leading-relaxed text-chumbo;
+  }
+  .prose-artigo ul {
+    @apply mb-4 ml-5 list-disc space-y-1 text-chumbo;
+  }
+}
