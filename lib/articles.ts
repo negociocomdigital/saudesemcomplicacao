@@ -75,14 +75,40 @@ export const CATEGORIAS: Categoria[] = [
   "Renda Extra com Marmitas",
 ];
 
-const CTA_PADRAO_POR_CATEGORIA: Record<Categoria, string> = {
-  "Marmita Congelada":
-    "Quer aprender a congelar marmita sem perder sabor nem tempo?",
-  "Marmita Fit": "Quer montar marmitas fit sem complicação toda semana?",
-  "Marmitas em Campinas":
-    "Quer organizar suas marmitas em Campinas sem enrolação?",
-  "Renda Extra com Marmitas":
-    "Quer transformar sua cozinha em uma renda extra de verdade?",
+const CURSO_LINK_PADRAO = "https://fitlucrativo.lovable.app/";
+const CURSO_BADGE_PADRAO = "Fit Lucrativo";
+
+// Tom por categoria: categorias de "ganhar dinheiro" vão direto e agressivo
+// no tema de renda/lucro. As demais (mais sobre praticidade do dia a dia)
+// vendem a ideia de ganhar tempo de volta e ter uma vida mais leve — o
+// gancho bate com a intenção de quem está lendo aquele artigo específico.
+const CTA_PADRAO_POR_CATEGORIA: Record<
+  Categoria,
+  { titulo: string; subtitulo: string; botao: string }
+> = {
+  "Marmita Congelada": {
+    titulo: "Cansado de perder tempo decidindo o que comer todo dia?",
+    subtitulo:
+      "O Fit Lucrativo te mostra como ganhar esse tempo de volta e ter uma rotina mais leve.",
+    botao: "Quero ganhar tempo",
+  },
+  "Marmita Fit": {
+    titulo: "Quer uma vida mais leve, sem virar refém da cozinha toda semana?",
+    subtitulo: "Veja como o Fit Lucrativo simplifica sua rotina fit de vez.",
+    botao: "Quero uma rotina mais leve",
+  },
+  "Marmitas em Campinas": {
+    titulo: "Quer ganhar tempo de volta com as marmitas da sua semana?",
+    subtitulo: "O Fit Lucrativo mostra o caminho mais simples pra isso.",
+    botao: "Quero ganhar tempo",
+  },
+  "Renda Extra com Marmitas": {
+    titulo:
+      "Cansado de bater o mês no zero a zero? Comece a lucrar vendendo marmita fit.",
+    subtitulo:
+      "O Fit Lucrativo é o passo a passo completo pra transformar sua cozinha numa fonte de renda extra real.",
+    botao: "Quero lucrar com marmita fit",
+  },
 };
 
 export interface CtaConteudo {
@@ -94,12 +120,13 @@ export interface CtaConteudo {
 }
 
 export function getCtaContent(artigo: ArticleFrontmatter): CtaConteudo {
+  const padrao = CTA_PADRAO_POR_CATEGORIA[artigo.categoria];
   return {
-    badge: artigo.cta_badge || "Saúde Sem Complicação",
-    titulo: artigo.cta_titulo || CTA_PADRAO_POR_CATEGORIA[artigo.categoria],
-    subtitulo: artigo.cta_subtitulo || "Em breve, por aqui. Sem compromisso.",
-    botao: artigo.cta_botao || "Quero saber mais",
-    link: artigo.cta_link,
+    badge: artigo.cta_badge || CURSO_BADGE_PADRAO,
+    titulo: artigo.cta_titulo || padrao.titulo,
+    subtitulo: artigo.cta_subtitulo || padrao.subtitulo,
+    botao: artigo.cta_botao || padrao.botao,
+    link: artigo.cta_link || CURSO_LINK_PADRAO,
   };
 }
 

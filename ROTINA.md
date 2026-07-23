@@ -103,20 +103,33 @@ imagem de capa e no final, depois do conteúdo (`components/PromoBanner.tsx`,
 renderizado em `app/blog/[slug]/page.tsx`). O conteúdo vem do frontmatter,
 via `getCtaContent()` em `lib/articles.ts`:
 
-- `cta_titulo`: a pergunta/gancho principal do banner (ex.: "Quer aprender a
-  congelar marmita sem perder sabor nem tempo?"). **Escreva um específico
-  para o ângulo daquele artigo** — não repita o mesmo texto em lotes
-  diferentes. Se omitido, cai num texto padrão genérico por categoria.
-- `cta_subtitulo`: linha de apoio (ex.: "Em breve, por aqui. Sem
-  compromisso."). Opcional.
-- `cta_botao`: texto do botão (ex.: "Quero saber mais"). Opcional.
-- `cta_link`: URL do curso/produto. **Ainda não definido** — enquanto não
-  houver link, não preencha esse campo; o botão aparece como um elemento
-  não clicável (mesma lógica de "em breve"). Quando o link for definido
-  (curso próprio ou afiliado), preencha `cta_link` em todos os artigos (ou
-  passe a incluir em todo artigo novo) para o botão virar um link real.
-- `cta_badge`: texto do selinho acima do título (ex.: "Saúde Sem
-  Complicação"). Normalmente não precisa mudar.
+- `cta_titulo`: a pergunta/gancho principal do banner. **Escreva um
+  específico para o ângulo daquele artigo** — não repita o mesmo texto em
+  lotes diferentes. Se omitido, cai num texto padrão por categoria (ver
+  `CTA_PADRAO_POR_CATEGORIA` em `lib/articles.ts`).
+- `cta_subtitulo`: linha de apoio. Opcional, mesma lógica de fallback.
+- `cta_botao`: texto do botão. Opcional, mesma lógica de fallback.
+- `cta_link`: URL do curso. **Já definido globalmente**
+  (`https://fitlucrativo.lovable.app/`, constante `CURSO_LINK_PADRAO` em
+  `lib/articles.ts`) — só preencha este campo por artigo se um dia precisar
+  apontar para um link diferente do padrão.
+- `cta_badge`: texto do selinho acima do título. Padrão: "Fit Lucrativo".
+  Normalmente não precisa mudar.
+
+**Tom do CTA por categoria (importante, pode ser mais agressivo):**
+- `Renda Extra com Marmitas` (ângulo "ganhar dinheiro"): vá direto no tema
+  de lucro/renda, sem meias palavras — ex.: "Cansado de bater o mês no zero
+  a zero? Comece a lucrar vendendo marmita fit."
+- `Marmita Congelada`, `Marmita Fit`, `Marmitas em Campinas` (ângulos mais
+  sobre praticidade do dia a dia): venda a ideia de **ganhar tempo de volta
+  e ter uma vida mais leve**, não o tema de dinheiro — ex.: "Cansado de
+  perder tempo decidindo o que comer todo dia?". Mesmo esses CTAs levam
+  para o mesmo curso (Fit Lucrativo), só que com gancho de tempo/leveza em
+  vez de gancho financeiro, porque combina mais com a intenção de quem lê
+  aquele tipo de artigo.
+
+Ao escrever `cta_titulo` customizado por artigo, siga esse mesmo critério de
+tom conforme a categoria do artigo.
 
 ## Rotina automática diária
 

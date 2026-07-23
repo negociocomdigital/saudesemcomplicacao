@@ -60,7 +60,13 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         )}
       </p>
 
-      <div className="card relative mb-8 aspect-[3/2] w-full overflow-hidden">
+      <div className="prose-artigo">
+        <MDXRemote source={primeiro} />
+      </div>
+
+      <PromoBanner cta={cta} />
+
+      <div className="card relative mb-8 mt-8 aspect-[3/2] w-full overflow-hidden">
         <Image
           src={artigo.imagem_capa}
           alt={artigo.titulo}
@@ -70,12 +76,6 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
           className="object-cover"
         />
       </div>
-
-      <div className="prose-artigo">
-        <MDXRemote source={primeiro} />
-      </div>
-
-      <PromoBanner cta={cta} />
 
       {resto && (
         <div className="prose-artigo">
