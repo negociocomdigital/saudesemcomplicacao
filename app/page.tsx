@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAllArticles, CATEGORIAS, slugify } from "@/lib/articles";
+import { getAllArticles } from "@/lib/articles";
 import ArticleCard from "@/components/ArticleCard";
 
 export default function HomePage() {
@@ -15,17 +15,6 @@ export default function HomePage() {
           Dicas simples e práticas para fazer marmita congelada, montar
           marmitas fit em casa e até transformar isso em uma renda extra.
         </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
-          {CATEGORIAS.map((categoria) => (
-            <Link
-              key={categoria}
-              href={`/categoria/${slugify(categoria)}`}
-              className="tag-pill hover:bg-salvia/20"
-            >
-              {categoria}
-            </Link>
-          ))}
-        </div>
       </section>
 
       <section>

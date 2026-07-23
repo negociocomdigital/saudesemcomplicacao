@@ -5,7 +5,7 @@ import { CATEGORIAS, slugify } from "@/lib/articles";
 export default function Header() {
   return (
     <header className="border-b border-black/5 bg-bege/80 backdrop-blur">
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-3 px-6 py-6">
+      <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 py-8">
         <Link href="/" className="block">
           <Image
             src="/logo.png"
@@ -13,7 +13,7 @@ export default function Header() {
             width={1203}
             height={384}
             priority
-            className="h-14 w-auto sm:h-16"
+            className="h-20 w-auto sm:h-24"
           />
         </Link>
         <nav className="flex flex-wrap justify-center gap-2">
