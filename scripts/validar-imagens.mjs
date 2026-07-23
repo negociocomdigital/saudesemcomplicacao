@@ -10,6 +10,56 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+// Geradores de imagem por IA (Pollinations/Flux) costumam distorcer telas de
+// celular/computador, ícones de apps e qualquer texto renderizado na cena.
+// Bloqueamos esses temas de prompt aqui para não publicar imagem quebrada.
+const PALAVRAS_DE_RISCO = [
+  "phone",
+  "smartphone",
+  "iphone",
+  "screen",
+  "display",
+  "app ",
+  "whatsapp",
+  "instagram",
+  "facebook",
+  "laptop",
+  "computer",
+  "tablet",
+  "typing",
+  "keyboard",
+  "notification",
+  "chat",
+  "message",
+  "icon",
+  "logo",
+  "interface",
+  "website",
+  "browser",
+  "text on",
+  "reading text",
+];
+
+function extrairPrompt(url) {
+  const match = url.match(/\/prompt\/([^?]+)/);
+  if (!match) return "";
+  try {
+    return decodeURIComponent(match[1]).toLowerCase();
+  } catch {
+    return match[1].toLowerCase();
+  }
+}
+
+function checarPromptDeRisco(url) {
+  const prompt = extrairPrompt(url);
+  for (const palavra of PALAVRAS_DE_RISCO) {
+    if (prompt.includes(palavra)) {
+      return palavra;
+    }
+  }
+  return null;
+}
+
 function readFrontmatter(raw) {
   const match = raw.match(/^---\n([\s\S]*?)\n---/);
   if (!match) return {};
@@ -46,6 +96,13 @@ async function checkImageOnce(url) {
 
 async function checkImage(url) {
   if (!url) return { ok: false, reason: "vazio" };
+  const palavraDeRisco = checarPromptDeRisco(url);
+  if (palavraDeRisco) {
+    return {
+      ok: false,
+      reason: `prompt de risco de distorção ("${palavraDeRisco}") — evite telas, apps ou texto na cena`,
+    };
+  }
   let lastResult;
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     lastResult = await checkImageOnce(url);

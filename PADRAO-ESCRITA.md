@@ -52,14 +52,36 @@ um exemplo prático, uma situação real — em vez de só afirmações vagas ti
 - Sem conclusão genérica tipo "resumindo, é isso". Fechar com CTA prática,
   como já definido no `ROTINA.md`.
 
-## 6. Checklist antes de publicar qualquer artigo
+## 6. Prompt de imagem: evite temas que a IA distorce
+
+Geradores como o Flux (usado pela Pollinations) renderizam mal telas de
+celular/computador, ícones de app, texto na cena e mãos manipulando objetos
+pequenos como um telefone. Isso produz imagens visivelmente quebradas
+(rostos/ícones deformados, texto ilegível).
+
+**Nunca usar no prompt:** phone, smartphone, screen, display, app, whatsapp,
+instagram, laptop, computer, tablet, typing, keyboard, chat, message, icon,
+logo, interface, website, texto/legenda na cena.
+
+**Prefira sempre:** comida, potes/embalagens, mãos com comida ou embalagens
+(não com aparelhos), cenas de cozinha, freezer, prateleiras, entrega de
+sacola — fotografia realista simples, sem telas nem texto. Exemplo seguro
+para um tema de "divulgação/vendas": "hands packing labeled meal prep
+containers into a delivery bag on a kitchen table, warm natural light, food
+photography" em vez de "smartphone showing whatsapp chat...".
+
+O `scripts/validar-imagens.mjs` bloqueia automaticamente prompts com essas
+palavras de risco — se ele reprovar por isso, troque o tema do prompt (não
+adianta só trocar uma palavra, mude a cena inteira para algo sem tela/app).
+
+## 7. Checklist antes de publicar qualquer artigo
 
 1. Primeiro parágrafo responde a pergunta direta, sem rodeio.
 2. H2s cobrem sub-perguntas reais do tema, não frases de efeito.
 3. Pelo menos um detalhe concreto e específico no corpo do texto.
 4. Título, slug e categoria batem com o frontmatter.
-5. `imagem_capa` é uma URL Pollinations válida e testada (ver
-   `scripts/validar-imagens.mjs` — **obrigatório, nenhum artigo publica sem
-   isso**).
+5. `imagem_capa` é uma URL Pollinations válida e testada, sem temas de risco
+   de distorção (ver item 6 acima e `scripts/validar-imagens.mjs` —
+   **obrigatório, nenhum artigo publica sem isso**).
 6. 600–900 palavras.
 7. Termina com CTA genérica sobre organizar a rotina de marmitas.
