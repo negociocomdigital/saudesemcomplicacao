@@ -11,15 +11,16 @@ function sleep(ms) {
 }
 
 // Geradores de imagem por IA (Pollinations/Flux) costumam distorcer telas de
-// celular/computador, ícones de apps e qualquer texto renderizado na cena.
-// Bloqueamos esses temas de prompt aqui para não publicar imagem quebrada.
-const PALAVRAS_DE_RISCO = [
+// celular/computador, ícones de apps, texto na cena e QUALQUER ser humano
+// (mãos com dedos errados, rostos deformados). Bloqueamos esses temas de
+// prompt aqui para não publicar imagem quebrada.
+const PALAVRAS_DE_RISCO_TELA = [
   "phone",
   "smartphone",
   "iphone",
   "screen",
   "display",
-  "app ",
+  "app",
   "whatsapp",
   "instagram",
   "facebook",
@@ -36,9 +37,47 @@ const PALAVRAS_DE_RISCO = [
   "interface",
   "website",
   "browser",
-  "text on",
-  "reading text",
 ];
+
+// Nenhuma pessoa/parte do corpo na cena — só comida, potes, embalagens,
+// cozinha, freezer, prateleiras, etc.
+const PALAVRAS_DE_RISCO_HUMANO = [
+  "hand",
+  "hands",
+  "finger",
+  "fingers",
+  "palm",
+  "wrist",
+  "arm",
+  "arms",
+  "body",
+  "face",
+  "portrait",
+  "model",
+  "woman",
+  "women",
+  "man",
+  "men",
+  "person",
+  "people",
+  "human",
+  "chef",
+  "cook",
+  "cooking",
+  "cooker",
+  "worker",
+  "owner",
+  "entrepreneur",
+  "customer",
+  "client",
+  "seller",
+  "girl",
+  "boy",
+  "lady",
+  "guy",
+];
+
+const PALAVRAS_DE_RISCO = [...PALAVRAS_DE_RISCO_TELA, ...PALAVRAS_DE_RISCO_HUMANO];
 
 function extrairPrompt(url) {
   const match = url.match(/\/prompt\/([^?]+)/);
@@ -53,7 +92,8 @@ function extrairPrompt(url) {
 function checarPromptDeRisco(url) {
   const prompt = extrairPrompt(url);
   for (const palavra of PALAVRAS_DE_RISCO) {
-    if (prompt.includes(palavra)) {
+    const regex = new RegExp(`\\b${palavra}\\b`, "i");
+    if (regex.test(prompt)) {
       return palavra;
     }
   }
@@ -100,7 +140,7 @@ async function checkImage(url) {
   if (palavraDeRisco) {
     return {
       ok: false,
-      reason: `prompt de risco de distorção ("${palavraDeRisco}") — evite telas, apps ou texto na cena`,
+      reason: `prompt de risco de distorção ("${palavraDeRisco}") — evite telas/apps/texto e QUALQUER ser humano na cena`,
     };
   }
   let lastResult;

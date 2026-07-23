@@ -55,24 +55,32 @@ um exemplo prático, uma situação real — em vez de só afirmações vagas ti
 ## 6. Prompt de imagem: evite temas que a IA distorce
 
 Geradores como o Flux (usado pela Pollinations) renderizam mal telas de
-celular/computador, ícones de app, texto na cena e mãos manipulando objetos
-pequenos como um telefone. Isso produz imagens visivelmente quebradas
-(rostos/ícones deformados, texto ilegível).
+celular/computador, ícones de app, texto na cena e **qualquer ser humano**
+(mãos com dedos errados, rostos deformados). Isso produz imagens
+visivelmente quebradas.
 
-**Nunca usar no prompt:** phone, smartphone, screen, display, app, whatsapp,
-instagram, laptop, computer, tablet, typing, keyboard, chat, message, icon,
-logo, interface, website, texto/legenda na cena.
+**Regra número 1: nenhuma foto do blog pode ter ser humano na cena.** Nada
+de mãos, rosto, corpo, "pessoa fazendo X" — nem de longe, nem desfocado.
+Todo prompt descreve só objetos e ambientes: comida, potes, embalagens,
+cozinha, freezer, prateleiras, sacola de entrega, caderno com anotação, rua,
+etc.
 
-**Prefira sempre:** comida, potes/embalagens, mãos com comida ou embalagens
-(não com aparelhos), cenas de cozinha, freezer, prateleiras, entrega de
-sacola — fotografia realista simples, sem telas nem texto. Exemplo seguro
-para um tema de "divulgação/vendas": "hands packing labeled meal prep
-containers into a delivery bag on a kitchen table, warm natural light, food
-photography" em vez de "smartphone showing whatsapp chat...".
+**Nunca usar no prompt:** hand(s), finger(s), arm(s), body, face, woman,
+man/men, person/people, human, chef, cook/cooking, worker, owner,
+entrepreneur, customer, girl, boy — e também phone, smartphone, screen,
+display, app, whatsapp, instagram, laptop, computer, tablet, typing,
+keyboard, chat, message, icon, logo, interface, website, texto/legenda na
+cena.
+
+**Prefira sempre:** só o objeto/cena, sem ninguém manipulando nada. Exemplo
+seguro para um tema de "divulgação/vendas": "neatly packed meal prep
+containers ready for delivery inside an open paper bag on a wooden table,
+warm natural light, food photography" — sem "hands", sem "person", sem
+"woman".
 
 O `scripts/validar-imagens.mjs` bloqueia automaticamente prompts com essas
-palavras de risco — se ele reprovar por isso, troque o tema do prompt (não
-adianta só trocar uma palavra, mude a cena inteira para algo sem tela/app).
+palavras de risco (tela/app **ou humano**) — se ele reprovar, troque a cena
+inteira do prompt (não adianta só trocar uma palavra).
 
 ## 7. Checklist antes de publicar qualquer artigo
 

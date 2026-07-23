@@ -34,11 +34,12 @@ node scripts/validar-imagens.mjs
 
 Testa a URL `imagem_capa` de cada artigo (HTTP 200 + `content-type: image/*`)
 **e também reprova prompts com temas que a IA de imagem costuma distorcer**
-(telas de celular/computador, apps, texto na cena — ver seção 6 do
+(qualquer ser humano na cena — mãos, rosto, corpo — e telas de
+celular/computador, apps, texto na cena — ver seção 6 do
 `PADRAO-ESCRITA.md`). **Nenhum artigo pode ser commitado/publicado com o
 script retornando falha.** Se algum artigo aparecer com "FALHA", troque a
-cena inteira do prompt (não só uma palavra) para algo sem tela/app/texto e
-rode o script de novo até 100% OK.
+cena inteira do prompt (não só uma palavra) para algo sem pessoa/tela/app/
+texto e rode o script de novo até 100% OK.
 
 ## Prompt para gerar o próximo lote de 10 artigos
 
@@ -77,10 +78,11 @@ rode o script de novo até 100% OK.
 >      `https://image.pollinations.ai/prompt/{prompt}?width=1024&height=683&nologo=true&model=flux`,
 >      com `{prompt}` em inglês, montado especificamente para o tema daquele
 >      artigo (nunca um prompt fixo repetido entre artigos). NUNCA descreva
->      telas de celular/computador, apps, ícones, whatsapp/instagram ou texto
->      na cena — a IA distorce isso visivelmente. Prefira comida, potes,
->      embalagens, mãos com comida (não com aparelhos), cozinha, freezer,
->      entrega de sacola.
+>      NENHUM ser humano na cena (sem mãos, rosto, corpo, "pessoa fazendo
+>      X") nem telas de celular/computador, apps, ícones, whatsapp/instagram
+>      ou texto — a IA distorce tudo isso visivelmente. Use só objetos e
+>      ambientes: comida, potes, embalagens, cozinha, freezer, prateleiras,
+>      entrega de sacola, caderno com anotação.
 >    - Slugs em minúsculas, com hífen, sem acento.
 > 4. Rode `node scripts/validar-imagens.mjs` — se algum artigo falhar, gere
 >    outra URL Pollinations para ele e valide de novo. Não prosseguir com
