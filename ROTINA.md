@@ -87,8 +87,26 @@ prompt específico para aquele artigo e rode o script de novo até 100% OK.
 
 ## Rotina automática diária
 
-Configurada como uma Claude Code Routine (agente de nuvem) que roda todos os
-dias, clona este repositório, executa o prompt acima na íntegra e faz o
-push do lote de 10 artigos novos. A Vercel está conectada ao GitHub e publica
-automaticamente a cada push — nenhum comando manual é necessário no dia a
-dia. Gerenciar/pausar a rotina em https://claude.ai/code/routines.
+Configurada como um cron local do Claude Code (`CronCreate`), disparando
+todos os dias às 9h07 (horário local) o prompt acima na íntegra. Isso roda
+dentro desta mesma sessão/ambiente local — o mesmo padrão já usado no
+projeto irmão `artigos-ia`, que também gera conteúdo e publica via script
+local em vez de um agente de nuvem.
+
+**Limitações reais desse mecanismo (importante saber):**
+- Só dispara enquanto o Claude Code estiver aberto no computador no horário
+  agendado. Se o app estiver fechado, o disparo daquele dia é perdido.
+- O agendamento expira sozinho depois de 7 dias e precisa ser recriado
+  (`CronCreate` de novo com o mesmo prompt).
+- É por sessão: se a sessão do Claude Code for encerrada, o agendamento some
+  antes mesmo dos 7 dias.
+
+Publicação: o job faz `git push origin main`, e a Vercel publica sozinha a
+cada push — **desde que o projeto Vercel esteja conectado ao repositório
+GitHub** (Vercel → Project Settings → Git → Connect Repository →
+`negociocomdigital/saudesemcomplicacao`). Sem essa conexão, o push acontece
+mas o site não atualiza sozinho.
+
+Se quiser automação que sobreviva ao Claude Code fechado ou aos 7 dias, a
+alternativa é a Claude Code Routine (agente de nuvem, `claude.ai/code/routines`),
+que ficou pendente por falta de conexão da conta GitHub com o claude.ai.
