@@ -82,6 +82,14 @@ O `scripts/validar-imagens.mjs` bloqueia automaticamente prompts com essas
 palavras de risco (tela/app **ou humano**) — se ele reprovar, troque a cena
 inteira do prompt (não adianta só trocar uma palavra).
 
+**Cuidado extra:** verbo de ação em andamento (ex.: "container being
+portioned and sealed", "meals being packed") faz a IA desenhar uma pessoa
+fazendo aquilo — mesmo sem a palavra "hand"/"person" no prompt — e o
+resultado sai com braço/mão deformado ao fundo. O validador não pega esse
+caso automaticamente. Prefira descrever o **estado pronto/parado** do
+objeto (sealed, labeled, lined up, stacked, ready to freeze) em vez da ação
+sendo feita (being sealed, being packed, portioning).
+
 ## 7. Checklist antes de publicar qualquer artigo
 
 1. Primeiro parágrafo responde a pergunta direta, sem rodeio.
