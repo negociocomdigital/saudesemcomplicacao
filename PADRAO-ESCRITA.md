@@ -90,14 +90,35 @@ caso automaticamente. Prefira descrever o **estado pronto/parado** do
 objeto (sealed, labeled, lined up, stacked, ready to freeze) em vez da ação
 sendo feita (being sealed, being packed, portioning).
 
-## 7. Checklist antes de publicar qualquer artigo
+## 7. Geolocalização (Campinas) em todo artigo
+
+O material de treinamento (arquivos 04, 06, 11, 12, 13) mostra que ranquear
+bem no Google e ser citado por IA depende muito de sinal geográfico —
+sites que rankeiam associam o serviço a uma cidade/região específica, e
+depois expandem para cidades vizinhas. Isso vale mesmo para palavras-chave
+nacionais como "marmita fit" ou "marmita congelada".
+
+**Regra: todo artigo, de qualquer categoria, precisa ter pelo menos uma
+seção com sinal geográfico** — não só os da categoria "Marmitas em
+Campinas". Para os artigos com palavra-chave nacional (marmita congelada,
+marmita fit, renda extra), adicione um H2 curto do tipo "Isso muda se eu
+morar em Campinas?" ou "Isso funciona em Campinas também?", respondendo em
+2-4 frases e citando a cidade e, quando fizer sentido, um bairro (Cambuí,
+Taquaral, Barão Geraldo, Vila Industrial, região central).
+
+Não force a palavra-chave principal a virar "algo em Campinas" — o
+ângulo geográfico é um H2 adicional, não o tema central do artigo (isso já
+é papel da categoria "Marmitas em Campinas").
+
+## 8. Checklist antes de publicar qualquer artigo
 
 1. Primeiro parágrafo responde a pergunta direta, sem rodeio.
 2. H2s cobrem sub-perguntas reais do tema, não frases de efeito.
 3. Pelo menos um detalhe concreto e específico no corpo do texto.
-4. Título, slug e categoria batem com o frontmatter.
-5. `imagem_capa` é uma URL Pollinations válida e testada, sem temas de risco
+4. Pelo menos uma seção com sinal geográfico (Campinas/bairro) — ver item 7.
+5. Título, slug e categoria batem com o frontmatter.
+6. `imagem_capa` é uma URL Pollinations válida e testada, sem temas de risco
    de distorção (ver item 6 acima e `scripts/validar-imagens.mjs` —
    **obrigatório, nenhum artigo publica sem isso**).
-6. 600–900 palavras.
-7. Termina com CTA genérica sobre organizar a rotina de marmitas.
+7. 600–900 palavras.
+8. Termina com CTA genérica sobre organizar a rotina de marmitas.

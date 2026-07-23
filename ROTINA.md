@@ -67,6 +67,12 @@ texto e rode o script de novo até 100% OK.
 >      citar "nutricionista" ou "consultoria nutricional" — o produto final
 >      é um curso (próprio ou afiliado), não atendimento nutricional.
 >    - Foco em praticidade, economia de tempo, organização e renda extra.
+>    - Todo artigo, mesmo os de palavra-chave nacional (marmita congelada,
+>      marmita fit, renda extra), precisa ter um H2 curto com sinal
+>      geográfico — ex.: "Isso muda se eu morar em Campinas?" — citando
+>      Campinas e, quando fizer sentido, um bairro (Cambuí, Taquaral, Barão
+>      Geraldo, Vila Industrial, região central). Ver seção 7 do
+>      `PADRAO-ESCRITA.md`.
 >    - 600 a 900 palavras por artigo, em Markdown simples (## para h2,
 >      parágrafos, listas com `-`).
 >    - Terminar cada artigo com um parágrafo de CTA genérico sobre organizar
