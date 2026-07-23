@@ -22,6 +22,11 @@ export interface ArticleFrontmatter {
   funil: Funil;
   resumo: string;
   imagem_capa: string;
+  cta_badge?: string;
+  cta_titulo?: string;
+  cta_subtitulo?: string;
+  cta_botao?: string;
+  cta_link?: string;
 }
 
 export interface Article extends ArticleFrontmatter {
@@ -69,6 +74,34 @@ export const CATEGORIAS: Categoria[] = [
   "Marmitas em Campinas",
   "Renda Extra com Marmitas",
 ];
+
+const CTA_PADRAO_POR_CATEGORIA: Record<Categoria, string> = {
+  "Marmita Congelada":
+    "Quer aprender a congelar marmita sem perder sabor nem tempo?",
+  "Marmita Fit": "Quer montar marmitas fit sem complicação toda semana?",
+  "Marmitas em Campinas":
+    "Quer organizar suas marmitas em Campinas sem enrolação?",
+  "Renda Extra com Marmitas":
+    "Quer transformar sua cozinha em uma renda extra de verdade?",
+};
+
+export interface CtaConteudo {
+  badge: string;
+  titulo: string;
+  subtitulo: string;
+  botao: string;
+  link?: string;
+}
+
+export function getCtaContent(artigo: ArticleFrontmatter): CtaConteudo {
+  return {
+    badge: artigo.cta_badge || "Saúde Sem Complicação",
+    titulo: artigo.cta_titulo || CTA_PADRAO_POR_CATEGORIA[artigo.categoria],
+    subtitulo: artigo.cta_subtitulo || "Em breve, por aqui. Sem compromisso.",
+    botao: artigo.cta_botao || "Quero saber mais",
+    link: artigo.cta_link,
+  };
+}
 
 export function slugify(text: string): string {
   return text

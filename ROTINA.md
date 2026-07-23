@@ -73,7 +73,9 @@ texto e rode o script de novo até 100% OK.
 >      a rotina de marmitas (sem citar nome de curso específico).
 >    - Frontmatter seguindo exatamente os campos de `lib/articles.ts`
 >      (`ArticleFrontmatter`): titulo, slug, data_publicacao, categoria,
->      palavra_chave, angulo, funil, resumo, imagem_capa.
+>      palavra_chave, angulo, funil, resumo, imagem_capa, cta_titulo,
+>      cta_subtitulo, cta_botao (os três últimos opcionais, mas prefira
+>      sempre preencher — ver seção "Banner de CTA" abaixo).
 >    - `imagem_capa`: URL da Pollinations no formato
 >      `https://image.pollinations.ai/prompt/{prompt}?width=1024&height=683&nologo=true&model=flux`,
 >      com `{prompt}` em inglês, montado especificamente para o tema daquele
@@ -93,6 +95,28 @@ texto e rode o script de novo até 100% OK.
 >    `git add content/articles && git commit -m "Adiciona 10 novos artigos"
 >    && git push origin main`
 > 7. Reporte os 10 títulos e categorias criados.
+
+## Banner de CTA (início e fim do artigo)
+
+Cada página de artigo mostra o mesmo banner de CTA duas vezes: logo após a
+imagem de capa e no final, depois do conteúdo (`components/PromoBanner.tsx`,
+renderizado em `app/blog/[slug]/page.tsx`). O conteúdo vem do frontmatter,
+via `getCtaContent()` em `lib/articles.ts`:
+
+- `cta_titulo`: a pergunta/gancho principal do banner (ex.: "Quer aprender a
+  congelar marmita sem perder sabor nem tempo?"). **Escreva um específico
+  para o ângulo daquele artigo** — não repita o mesmo texto em lotes
+  diferentes. Se omitido, cai num texto padrão genérico por categoria.
+- `cta_subtitulo`: linha de apoio (ex.: "Em breve, por aqui. Sem
+  compromisso."). Opcional.
+- `cta_botao`: texto do botão (ex.: "Quero saber mais"). Opcional.
+- `cta_link`: URL do curso/produto. **Ainda não definido** — enquanto não
+  houver link, não preencha esse campo; o botão aparece como um elemento
+  não clicável (mesma lógica de "em breve"). Quando o link for definido
+  (curso próprio ou afiliado), preencha `cta_link` em todos os artigos (ou
+  passe a incluir em todo artigo novo) para o botão virar um link real.
+- `cta_badge`: texto do selinho acima do título (ex.: "Saúde Sem
+  Complicação"). Normalmente não precisa mudar.
 
 ## Rotina automática diária
 

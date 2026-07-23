@@ -7,9 +7,10 @@ import {
   getAllArticles,
   getArticleBySlug,
   getArticleSlugs,
+  getCtaContent,
   slugify,
 } from "@/lib/articles";
-import CTASection from "@/components/CTASection";
+import PromoBanner from "@/components/PromoBanner";
 
 export function generateStaticParams() {
   return getArticleSlugs().map((slug) => ({ slug }));
@@ -36,6 +37,7 @@ export function generateMetadata({
 export default function ArticlePage({ params }: { params: { slug: string } }) {
   const artigo = getArticleBySlug(params.slug);
   if (!artigo) notFound();
+  const cta = getCtaContent(artigo);
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
@@ -67,11 +69,13 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         />
       </div>
 
+      <PromoBanner cta={cta} />
+
       <article className="prose-artigo">
         <MDXRemote source={artigo.content} />
       </article>
 
-      <CTASection />
+      <PromoBanner cta={cta} />
 
       <RelatedArticles slugAtual={artigo.slug} categoria={artigo.categoria} />
     </div>
