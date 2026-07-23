@@ -59,8 +59,10 @@ export default function PromoBanner({ cta }: { cta: CtaConteudo }) {
             {cta.subtitulo}
           </p>
           <ButtonTag
-            {...(cta.link ? { href: cta.link } : {})}
-            className="inline-flex select-none items-center gap-2 rounded-pill px-5 py-3 text-sm font-bold text-[#1f2419] transition-colors md:text-base"
+            {...(cta.link
+              ? { href: cta.link, target: "_blank", rel: "noopener noreferrer" }
+              : {})}
+            className="inline-flex select-none items-center gap-2 rounded-pill px-5 py-3 text-sm font-bold text-[#1f2419] transition-colors hover:brightness-110 md:text-base"
             style={{ backgroundColor: "#8fa98a" }}
           >
             {cta.botao}

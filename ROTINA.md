@@ -97,10 +97,34 @@ texto e rode o script de novo até 100% OK.
 >    falhas pendentes.
 > 5. Rode `node scripts/checar-duplicados.mjs` de novo para confirmar que
 >    não há título/slug repetido.
-> 6. Faça commit e push para `main`:
->    `git add content/articles && git commit -m "Adiciona 10 novos artigos"
+> 6. Para cada um dos 10 artigos novos, rode
+>    `node scripts/gerar-carrossel.mjs <slug>` para gerar o carrossel de
+>    Instagram correspondente (fica em `public/carrossel/<slug>/`).
+> 7. Faça commit e push para `main`:
+>    `git add content/articles public/carrossel && git commit -m "Adiciona 10 novos artigos e carrosseis"
 >    && git push origin main`
-> 7. Reporte os 10 títulos e categorias criados.
+> 8. Reporte os 10 títulos e categorias criados.
+
+## Carrossel de Instagram
+
+Cada artigo tem um carrossel gerado automaticamente por
+`scripts/gerar-carrossel.mjs` (8 slides: capa com a imagem do artigo, 6
+slides de conteúdo por seção, 1 slide de CTA — mesma identidade visual do
+blog). As imagens ficam em `public/carrossel/<slug>/slide-N.jpg`, o que as
+torna publicamente acessíveis assim que o site é publicado (necessário para
+o futuro auto-post via API do Instagram, que exige `image_url` público).
+
+- `node scripts/gerar-carrossel.mjs <slug>` — gera para um artigo.
+- `node scripts/gerar-carrossel.mjs --all` — regenera para todos.
+
+O tom do CTA final segue a mesma lógica por categoria do banner do site
+(`CTA_POR_CATEGORIA` dentro do próprio script, espelhando
+`lib/articles.ts`). Sempre que atualizar o tom/copy do CTA em
+`lib/articles.ts`, replicar a mudança em `scripts/gerar-carrossel.mjs`.
+
+**Pendente:** auto-post no Instagram depende da API oficial da Meta
+(conta Business + app no Meta for Developers + token de acesso), que exige
+configuração manual do usuário antes de qualquer automação.
 
 ## Banner de CTA (início e fim do artigo)
 
