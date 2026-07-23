@@ -100,10 +100,14 @@ texto e rode o script de novo até 100% OK.
 > 6. Para cada um dos 10 artigos novos, rode
 >    `node scripts/gerar-carrossel.mjs <slug>` para gerar o carrossel de
 >    Instagram correspondente (fica em `public/carrossel/<slug>/`).
-> 7. Faça commit e push para `main`:
->    `git add content/articles public/carrossel && git commit -m "Adiciona 10 novos artigos e carrosseis"
+> 7. Para cada um dos 10 artigos novos, escreva a legenda + hashtags do post
+>    e acrescente no final de `LEGENDAS-INSTAGRAM.txt` (mesmo formato dos
+>    posts já existentes no arquivo — ver seção "Legendas e hashtags do
+>    Instagram" abaixo).
+> 8. Faça commit e push para `main`:
+>    `git add content/articles public/carrossel LEGENDAS-INSTAGRAM.txt && git commit -m "Adiciona 10 novos artigos, carrosseis e legendas"
 >    && git push origin main`
-> 8. Reporte os 10 títulos e categorias criados.
+> 9. Reporte os 10 títulos e categorias criados.
 
 ## Carrossel de Instagram
 
@@ -125,6 +129,39 @@ O tom do CTA final segue a mesma lógica por categoria do banner do site
 **Pendente:** auto-post no Instagram depende da API oficial da Meta
 (conta Business + app no Meta for Developers + token de acesso), que exige
 configuração manual do usuário antes de qualquer automação.
+
+## Legendas e hashtags do Instagram
+
+Todo post (artigo + carrossel) precisa ter legenda e hashtags escritas em
+`LEGENDAS-INSTAGRAM.txt`, na raiz do projeto. Um bloco por artigo, sempre
+neste formato:
+
+```
+==================================================
+N. TÍTULO EM CAIXA ALTA
+Slug: slug-do-artigo
+Categoria: Categoria do Artigo
+==================================================
+
+LEGENDA:
+<3 a 4 linhas curtas, com no máximo 1 emoji por linha (nunca em excesso),
+puxando o gancho do artigo em tom de conversa, terminando com a linha de
+CTA para a bio>
+
+HASHTAGS:
+<12 a 15 hashtags, misturando termo genérico do nicho (#marmita, #mealprep),
+específico da categoria e, se for artigo de Campinas, o bairro/cidade>
+```
+
+Regra de tom da linha de CTA final (mesma lógica do banner do site):
+- `Marmita Congelada`, `Marmita Fit`, `Marmitas em Campinas`: "Quer ganhar
+  esse tempo de volta?" ou "Quer uma vida mais leve?" + "O passo a passo
+  completo tá no link da bio 👆"
+- `Renda Extra com Marmitas`: "Bora começar a lucrar com isso?" + "O passo
+  a passo completo tá no link da bio 👆"
+
+Emojis sempre com moderação (1 por linha, no máximo), nunca uma legenda
+cheia de emoji atrás de emoji.
 
 ## Banner de CTA (início e fim do artigo)
 
