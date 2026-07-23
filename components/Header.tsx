@@ -1,12 +1,20 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CATEGORIAS, slugify } from "@/lib/articles";
 
 export default function Header() {
   return (
     <header className="border-b border-black/5 bg-bege/80 backdrop-blur">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-3 px-6 py-6">
-        <Link href="/" className="font-serif text-2xl italic text-chumbo">
-          Saúde Sem Complicação
+        <Link href="/" className="block">
+          <Image
+            src="/logo.png"
+            alt="Saúde Sem Complicação"
+            width={1203}
+            height={384}
+            priority
+            className="h-14 w-auto sm:h-16"
+          />
         </Link>
         <nav className="flex flex-wrap justify-center gap-2">
           {CATEGORIAS.map((categoria) => (
