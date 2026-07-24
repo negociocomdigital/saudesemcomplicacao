@@ -3,8 +3,7 @@ import Image from "next/image";
 import PromoBanner from "@/components/PromoBanner";
 
 const CHECKOUT_URL = "https://pay.kiwify.com.br/7LMCUbG";
-const HERO_IMAGE =
-  "https://image.pollinations.ai/prompt/vibrant%20fit%20meal%20prep%20containers%20with%20grilled%20chicken%2C%20quinoa%2C%20colorful%20roasted%20vegetables%2C%20arranged%20elegantly%20on%20a%20rustic%20wooden%20table%2C%20soft%20natural%20light%2C%20editorial%20food%20photography%2C%20no%20people?width=1200&height=900&nologo=true&model=flux";
+const HERO_IMAGE = "/fit-lucrativo-hero.jpg";
 
 export const metadata: Metadata = {
   title: "Fit Lucrativo — Marmita fit, tempo de volta e renda extra",
@@ -121,12 +120,11 @@ export default function FitLucrativoPage() {
             vitalício
           </p>
         </div>
-        <div className="card relative aspect-[4/3] w-full overflow-hidden">
+        <div className="card relative aspect-square w-full overflow-hidden">
           <Image
             src={HERO_IMAGE}
-            alt="Marmitas fit organizadas"
+            alt="Marmitas fit organizadas em potes de vidro, prontas para a semana"
             fill
-            unoptimized
             priority
             className="object-cover"
           />
