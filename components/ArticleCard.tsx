@@ -22,6 +22,9 @@ export default function ArticleCard({ article }: { article: Article }) {
         <p className="line-clamp-3 flex-1 text-sm text-chumbo-claro">
           {article.resumo}
         </p>
+        <span className="inline-flex w-fit items-center gap-1 text-sm font-bold text-salvia-escuro transition-transform duration-200 group-hover:translate-x-1">
+          Leia mais →
+        </span>
       </div>
     </Link>
   );
