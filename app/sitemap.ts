@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: BASE_URL },
     { url: `${BASE_URL}/blog` },
     { url: `${BASE_URL}/sobre` },
+    { url: `${BASE_URL}/politica-de-privacidade` },
     ...categorias,
     ...artigos,
   ];

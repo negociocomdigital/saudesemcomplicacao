@@ -11,12 +11,18 @@ export default function Footer() {
           Conteúdo prático sobre marmitas para o dia a dia: economia de tempo,
           organização e renda extra.
         </p>
-        <p className="mt-4">
+        <p className="mt-4 flex justify-center gap-4">
           <Link
             href="/sobre"
             className="text-salvia-escuro underline-offset-4 hover:underline"
           >
             Sobre
+          </Link>
+          <Link
+            href="/politica-de-privacidade"
+            className="text-salvia-escuro underline-offset-4 hover:underline"
+          >
+            Política de Privacidade
           </Link>
         </p>
         <p className="mt-4">
