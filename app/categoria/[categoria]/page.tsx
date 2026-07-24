@@ -21,6 +21,7 @@ export function generateMetadata({
   return {
     title: categoria,
     description: `Artigos sobre ${categoria.toLowerCase()} no blog Saúde Sem Complicação.`,
+    alternates: { canonical: `/categoria/${slugify(categoria)}` },
   };
 }
 

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Blog",
   description:
     "Todos os artigos sobre marmita congelada, marmita fit, marmitas em Campinas e renda extra com marmitas.",
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogPage() {

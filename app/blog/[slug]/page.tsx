@@ -27,6 +27,7 @@ export function generateMetadata({
   return {
     title: artigo.titulo,
     description: artigo.resumo,
+    alternates: { canonical: `/blog/${artigo.slug}` },
     openGraph: {
       title: artigo.titulo,
       description: artigo.resumo,
@@ -41,8 +42,38 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
   const cta = getCtaContent(artigo);
   const { primeiro, resto } = splitIntroSection(artigo.content);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: artigo.titulo,
+    description: artigo.resumo,
+    image: [artigo.imagem_capa],
+    datePublished: artigo.data_publicacao,
+    dateModified: artigo.data_publicacao,
+    author: {
+      "@type": "Organization",
+      name: "Saúde Sem Complicação",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Saúde Sem Complicação",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://saudesemcomplicacao.com.br/logo.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://saudesemcomplicacao.com.br/blog/${artigo.slug}`,
+    },
+  };
+
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link
         href={`/categoria/${slugify(artigo.categoria)}`}
         className="tag-pill mb-4 inline-block"

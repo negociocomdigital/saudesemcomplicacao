@@ -26,6 +26,9 @@ export default function Header() {
               {categoria}
             </Link>
           ))}
+          <Link href="/sobre" className="tag-pill hover:bg-salvia/20">
+            Sobre
+          </Link>
         </nav>
       </div>
     </header>

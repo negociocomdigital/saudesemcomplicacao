@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: BASE_URL },
     { url: `${BASE_URL}/blog` },
+    { url: `${BASE_URL}/sobre` },
     ...categorias,
     ...artigos,
   ];
