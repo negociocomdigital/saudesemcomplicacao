@@ -101,11 +101,11 @@ texto e rode o script de novo até 100% OK.
 >    `node scripts/gerar-carrossel.mjs <slug>` para gerar o carrossel de
 >    Instagram correspondente (fica em `public/carrossel/<slug>/`).
 > 7. Para cada um dos 10 artigos novos, escreva a legenda + hashtags do post
->    e acrescente no final de `LEGENDAS-INSTAGRAM.txt` (mesmo formato dos
->    posts já existentes no arquivo — ver seção "Legendas e hashtags do
->    Instagram" abaixo).
+>    e salve em `public/carrossel/<slug>/legenda.txt` (mesmo formato dos
+>    artigos já existentes — ver seção "Legendas e hashtags do Instagram"
+>    abaixo).
 > 8. Faça commit e push para `main`:
->    `git add content/articles public/carrossel LEGENDAS-INSTAGRAM.txt && git commit -m "Adiciona 10 novos artigos, carrosseis e legendas"
+>    `git add content/articles public/carrossel && git commit -m "Adiciona 10 novos artigos, carrosseis e legendas"
 >    && git push origin main`
 > 9. Reporte os 10 títulos e categorias criados.
 
@@ -132,16 +132,13 @@ configuração manual do usuário antes de qualquer automação.
 
 ## Legendas e hashtags do Instagram
 
-Todo post (artigo + carrossel) precisa ter legenda e hashtags escritas em
-`LEGENDAS-INSTAGRAM.txt`, na raiz do projeto. Um bloco por artigo, sempre
-neste formato:
+Todo post (artigo + carrossel) precisa ter legenda e hashtags escritas num
+arquivo `legenda.txt` **dentro da própria pasta do carrossel**,
+`public/carrossel/<slug>/legenda.txt` — assim quem abrir a pasta do
+carrossel já encontra a legenda ao lado dos slides. Sempre neste formato:
 
 ```
-==================================================
-N. TÍTULO EM CAIXA ALTA
-Slug: slug-do-artigo
-Categoria: Categoria do Artigo
-==================================================
+TÍTULO DO ARTIGO
 
 LEGENDA:
 <3 a 4 linhas curtas, com no máximo 1 emoji por linha (nunca em excesso),
