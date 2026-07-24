@@ -29,6 +29,12 @@ export default function Header() {
           <Link href="/sobre" className="tag-pill hover:bg-salvia/20">
             Sobre
           </Link>
+          <Link
+            href="/fit-lucrativo"
+            className="rounded-pill bg-salvia-escuro px-4 py-1 text-xs font-semibold uppercase tracking-wide text-white transition-colors hover:brightness-110"
+          >
+            Fit Lucrativo
+          </Link>
         </nav>
       </div>
     </header>

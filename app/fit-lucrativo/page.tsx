@@ -1,0 +1,251 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import PromoBanner from "@/components/PromoBanner";
+
+const CHECKOUT_URL = "https://pay.kiwify.com.br/7LMCUbG";
+const HERO_IMAGE =
+  "https://image.pollinations.ai/prompt/vibrant%20fit%20meal%20prep%20containers%20with%20grilled%20chicken%2C%20quinoa%2C%20colorful%20roasted%20vegetables%2C%20arranged%20elegantly%20on%20a%20rustic%20wooden%20table%2C%20soft%20natural%20light%2C%20editorial%20food%20photography%2C%20no%20people?width=1200&height=900&nologo=true&model=flux";
+
+export const metadata: Metadata = {
+  title: "Fit Lucrativo — Marmita fit, tempo de volta e renda extra",
+  description:
+    "O método passo a passo para organizar suas marmitas fit, economizar tempo na cozinha e, se quiser, transformar isso em renda extra vendendo marmitas.",
+  alternates: { canonical: "/fit-lucrativo" },
+  openGraph: {
+    title: "Fit Lucrativo — Marmita fit, tempo de volta e renda extra",
+    description:
+      "O método passo a passo para organizar suas marmitas fit, economizar tempo na cozinha e, se quiser, transformar isso em renda extra vendendo marmitas.",
+    images: [HERO_IMAGE],
+  },
+};
+
+const BENEFICIOS = [
+  {
+    titulo: "Tempo de volta",
+    texto:
+      "Prepare a semana inteira de marmitas em poucas horas e nunca mais perca tempo decidindo o que comer todo dia.",
+    icone: (
+      <path d="M12 6v6l4 2M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" />
+    ),
+  },
+  {
+    titulo: "Alimentação mais leve",
+    texto:
+      "Refeições equilibradas e saborosas, pensadas para caber na sua rotina real — sem contar caloria a vida toda.",
+    icone: (
+      <path d="M12 21s-7-4.35-9.5-8.5C.7 8.6 2.4 5 6 5c2 0 3.3 1.1 4 2 .7-.9 2-2 4-2 3.6 0 5.3 3.6 3.5 7.5C19 16.65 12 21 12 21Z" />
+    ),
+  },
+  {
+    titulo: "Cozinha organizada",
+    texto:
+      "Um sistema simples de potes, freezer e planejamento semanal para parar de improvisar toda semana.",
+    icone: (
+      <>
+        <rect x="3" y="7" width="18" height="14" rx="2" />
+        <path d="M3 11h18M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
+      </>
+    ),
+  },
+  {
+    titulo: "Renda extra, se quiser",
+    texto:
+      "O mesmo método vira negócio: aprenda a precificar, vender e organizar entregas de marmita fit.",
+    icone: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M9.5 15.5c.5 1 1.5 1.5 2.5 1.5 1.7 0 3-1 3-2.3 0-3-5-1.5-5-4.2C10 9 11.3 8 13 8c1 0 2 .5 2.5 1.5M12 6.5v1M12 16.5v1" />
+      </>
+    ),
+  },
+];
+
+const PARA_QUEM = [
+  "Quer comer melhor sem depender de restaurante ou aplicativo de entrega",
+  "Tem uma rotina corrida e cansou de decidir o que comer todo dia",
+  "Quer organizar de vez a cozinha, o freezer e o dia a dia",
+  "Quer uma renda extra trabalhando de casa, no próprio horário",
+  "Está começando do zero — sem nenhuma experiência com marmita ou com vendas",
+];
+
+const FAQ = [
+  {
+    pergunta: "Preciso ter experiência para começar?",
+    resposta:
+      "Não. O método foi pensado para quem nunca fez marmita fit nem vendeu nada antes — o passo a passo parte do zero.",
+  },
+  {
+    pergunta: "Serve só para quem quer vender, ou também para quem só quer organizar a própria rotina?",
+    resposta:
+      "Serve para os dois casos. Você pode usar só para facilitar sua própria alimentação, ou seguir também a parte de como vender e lucrar com isso — a escolha é sua.",
+  },
+  {
+    pergunta: "Funciona em qualquer cidade?",
+    resposta:
+      "Sim. O método de preparo, organização e precificação vale para qualquer lugar do Brasil.",
+  },
+  {
+    pergunta: "E se eu não gostar?",
+    resposta:
+      "Você tem 7 dias de garantia incondicional. Se não for para você, é só pedir e devolvemos 100% do valor.",
+  },
+  {
+    pergunta: "Como recebo o acesso?",
+    resposta:
+      "Assim que o pagamento é confirmado pela Kiwify, o acesso é liberado na hora, direto no seu e-mail.",
+  },
+];
+
+export default function FitLucrativoPage() {
+  return (
+    <div className="mx-auto max-w-5xl px-6 py-12">
+      {/* Hero */}
+      <section className="grid items-center gap-10 md:grid-cols-2 md:gap-14">
+        <div>
+          <span className="tag-pill mb-5 w-fit">Método Fit Lucrativo</span>
+          <h1 className="mb-5 font-serif text-3xl leading-tight text-chumbo md:text-4xl">
+            Coma melhor, ganhe tempo de volta e, se quiser, transforme suas
+            marmitas em renda extra
+          </h1>
+          <p className="mb-7 text-chumbo-claro">
+            Um passo a passo simples para sair da bagunça na cozinha: menos
+            tempo perdido decidindo o que comer, mais controle da sua
+            alimentação — e um caminho real para vender marmita fit, se você
+            quiser lucrar com isso.
+          </p>
+          <a href={CHECKOUT_URL} className="btn-pill">
+            Quero começar agora
+          </a>
+          <p className="mt-4 text-xs text-chumbo-claro">
+            Pagamento processado pela Kiwify · Garantia de 7 dias · Acesso
+            vitalício
+          </p>
+        </div>
+        <div className="card relative aspect-[4/3] w-full overflow-hidden">
+          <Image
+            src={HERO_IMAGE}
+            alt="Marmitas fit organizadas"
+            fill
+            unoptimized
+            priority
+            className="object-cover"
+          />
+        </div>
+      </section>
+
+      {/* Benefícios */}
+      <section id="beneficios" className="mt-20">
+        <h2 className="mb-8 text-center font-serif text-2xl text-chumbo md:text-3xl">
+          Por que o Fit Lucrativo funciona
+        </h2>
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          {BENEFICIOS.map((b) => (
+            <div key={b.titulo} className="card flex gap-4 p-6">
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-salvia/10">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#728A6E"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  {b.icone}
+                </svg>
+              </div>
+              <div>
+                <h3 className="mb-1 font-serif text-lg text-chumbo">
+                  {b.titulo}
+                </h3>
+                <p className="text-sm text-chumbo-claro">{b.texto}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Para quem é */}
+      <section className="mt-20">
+        <h2 className="mb-8 text-center font-serif text-2xl text-chumbo md:text-3xl">
+          Para quem é o Fit Lucrativo
+        </h2>
+        <ul className="mx-auto max-w-2xl space-y-3">
+          {PARA_QUEM.map((item) => (
+            <li key={item} className="flex items-start gap-3">
+              <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-salvia/15 text-xs font-bold text-salvia-escuro">
+                ✓
+              </span>
+              <span className="text-chumbo-claro">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mx-auto mt-6 max-w-2xl rounded-xl bg-salvia/10 p-4 text-center text-sm font-semibold text-salvia-escuro">
+          Não precisa de experiência prévia — o método guia você passo a
+          passo, do zero.
+        </p>
+      </section>
+
+      {/* Preço */}
+      <section className="mt-20">
+        <div className="card mx-auto max-w-xl p-8 text-center md:p-10">
+          <p className="tag-pill mb-4 w-fit mx-auto">Oferta por tempo limitado</p>
+          <p className="text-chumbo-claro line-through">De R$ 97,00</p>
+          <p className="mb-2 font-serif text-4xl text-chumbo md:text-5xl">
+            R$ 27,00
+          </p>
+          <p className="mb-6 text-sm text-chumbo-claro">
+            Investimento único · Acesso vitalício · Sem mensalidades
+          </p>
+          <a href={CHECKOUT_URL} className="btn-pill w-full sm:w-auto">
+            Garantir meu acesso
+          </a>
+          <p className="mt-5 text-xs text-chumbo-claro">
+            Garantia de 7 dias — se não for para você, devolvemos 100% do
+            valor. Pagamento processado com segurança pela Kiwify.
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="mt-20">
+        <h2 className="mb-8 text-center font-serif text-2xl text-chumbo md:text-3xl">
+          Perguntas frequentes
+        </h2>
+        <div className="mx-auto max-w-2xl">
+          {FAQ.map((f) => (
+            <details
+              key={f.pergunta}
+              className="group border-b border-black/10 py-4 [&::-webkit-details-marker]:hidden"
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-chumbo">
+                {f.pergunta}
+                <span className="flex-shrink-0 text-salvia-escuro transition-transform group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <p className="mt-3 text-sm text-chumbo-claro">{f.resposta}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA final */}
+      <section className="mt-20">
+        <PromoBanner
+          cta={{
+            badge: "Fit Lucrativo",
+            titulo: "Pronta para organizar suas marmitas de vez?",
+            subtitulo:
+              "Acesso vitalício por R$ 27,00, com garantia de 7 dias.",
+            botao: "Garantir meu acesso",
+            link: CHECKOUT_URL,
+          }}
+        />
+      </section>
+    </div>
+  );
+}

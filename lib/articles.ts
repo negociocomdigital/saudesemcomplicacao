@@ -75,7 +75,7 @@ export const CATEGORIAS: Categoria[] = [
   "Renda Extra com Marmitas",
 ];
 
-const CURSO_LINK_PADRAO = "https://fitlucrativo.lovable.app/";
+const CURSO_LINK_PADRAO = "/fit-lucrativo";
 const CURSO_BADGE_PADRAO = "Fit Lucrativo";
 
 // Tom por categoria: categorias de "ganhar dinheiro" vão direto e agressivo
