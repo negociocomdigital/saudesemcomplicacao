@@ -174,9 +174,9 @@ via `getCtaContent()` em `lib/articles.ts`:
 - `cta_subtitulo`: linha de apoio. Opcional, mesma lógica de fallback.
 - `cta_botao`: texto do botão. Opcional, mesma lógica de fallback.
 - `cta_link`: URL do curso. **Já definido globalmente**
-  (`https://fitlucrativo.lovable.app/`, constante `CURSO_LINK_PADRAO` em
-  `lib/articles.ts`) — só preencha este campo por artigo se um dia precisar
-  apontar para um link diferente do padrão.
+  (`/fit-lucrativo`, página própria do blog, constante `CURSO_LINK_PADRAO`
+  em `lib/articles.ts`) — só preencha este campo por artigo se um dia
+  precisar apontar para um link diferente do padrão.
 - `cta_badge`: texto do selinho acima do título. Padrão: "Fit Lucrativo".
   Normalmente não precisa mudar.
 
