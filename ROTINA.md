@@ -121,6 +121,17 @@ o futuro auto-post via API do Instagram, que exige `image_url` público).
 - `node scripts/gerar-carrossel.mjs <slug>` — gera para um artigo.
 - `node scripts/gerar-carrossel.mjs --all` — regenera para todos.
 
+**O carrossel nunca foca em cidade/bairro** — geolocalização (Campinas,
+Cambuí, Taquaral, Barão Geraldo etc.) é um recurso só do blog, para SEO
+local. O script filtra automaticamente qualquer seção `## ` cujo título
+mencione cidade/bairro antes de escolher os slides de conteúdo (função
+`filtrarSecoesGeo` em `gerar-carrossel.mjs`), então os slides ficam com
+conteúdo puro e genérico. Isso já é automático — **não precisa (e não deve)
+escrever nada geo-específico ao gerar o carrossel**, o próprio script cuida
+disso. Exceção: se um artigo inteiro for sobre bairros (ex.: "melhores
+bairros para vender em Campinas"), o script cai de volta para as seções
+originais, só para o carrossel não ficar vazio.
+
 O tom do CTA final segue a mesma lógica por categoria do banner do site
 (`CTA_POR_CATEGORIA` dentro do próprio script, espelhando
 `lib/articles.ts`). Sempre que atualizar o tom/copy do CTA em

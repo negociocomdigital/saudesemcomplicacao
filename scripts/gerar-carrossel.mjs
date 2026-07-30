@@ -103,6 +103,19 @@ function parseSecoes(content) {
   return secoes;
 }
 
+// O carrossel é conteúdo nacional/genérico, sem foco em cidade ou bairro
+// (isso fica só no blog, para SEO local) — por isso seções cujo título é
+// sobre geolocalização (Campinas, bairros, etc.) não viram slide. Se o
+// artigo for tão local que sobrar pouca ou nenhuma seção "pura", usa as
+// seções originais mesmo assim, para o carrossel não ficar vazio.
+const REGEX_SECAO_GEO =
+  /campinas|cambu[ií]|taquaral|bar[ãa]o geraldo|vila industrial|regi[ãa]o central|unicamp|\bbairro/i;
+
+function filtrarSecoesGeo(secoes) {
+  const semGeo = secoes.filter((s) => !REGEX_SECAO_GEO.test(s.titulo));
+  return semGeo.length > 0 ? semGeo : secoes;
+}
+
 async function baixarImagemBase64(url) {
   const res = await fetch(url);
   const buf = Buffer.from(await res.arrayBuffer());
@@ -498,7 +511,7 @@ async function gerarCarrosselDoArtigo(slug) {
 
   const raw = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(raw);
-  const secoes = parseSecoes(content).slice(0, MAX_CONTENT_SLIDES);
+  const secoes = filtrarSecoesGeo(parseSecoes(content)).slice(0, MAX_CONTENT_SLIDES);
   const cta = CTA_POR_CATEGORIA[data.categoria] || CTA_POR_CATEGORIA["Marmita Congelada"];
 
   const outDir = path.join(OUTPUT_DIR, slug);
