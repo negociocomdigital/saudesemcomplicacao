@@ -103,17 +103,139 @@ function parseSecoes(content) {
   return secoes;
 }
 
-// O carrossel é conteúdo nacional/genérico, sem foco em cidade ou bairro
-// (isso fica só no blog, para SEO local) — por isso seções cujo título é
-// sobre geolocalização (Campinas, bairros, etc.) não viram slide. Se o
-// artigo for tão local que sobrar pouca ou nenhuma seção "pura", usa as
-// seções originais mesmo assim, para o carrossel não ficar vazio.
+// O carrossel é conteúdo nacional/genérico: nunca cita cidade nem bairro,
+// nem no título nem no conteúdo (isso fica só no blog, para SEO local).
+// 1) Seções cujo título é sobre geolocalização não viram slide.
+// 2) Qualquer menção de cidade/bairro que sobrar no corpo de uma seção
+//    "boa" é removida por segurança (removerGeoDoTexto).
+// 3) Se mesmo assim sobrar pouco conteúdo (artigo é local demais), usa
+//    override manual com conteúdo genérico (ver SECOES_OVERRIDE) ou, na
+//    falta de override, aplica a limpeza de texto nas seções originais
+//    como último recurso — nunca deixa o nome da cidade/bairro passar.
+// "bairro" sozinho (sem nome próprio junto) NÃO entra aqui — é uma palavra
+// genérica, vale em qualquer cidade do Brasil, não é uma referência de
+// lugar. O que precisa ficar de fora é a cidade e os bairros específicos.
 const REGEX_SECAO_GEO =
-  /campinas|cambu[ií]|taquaral|bar[ãa]o geraldo|vila industrial|regi[ãa]o central|unicamp|\bbairro/i;
+  /campinas|cambu[ií]|taquaral|bar[ãa]o geraldo|vila industrial|regi[ãa]o central|unicamp/i;
 
-function filtrarSecoesGeo(secoes) {
-  const semGeo = secoes.filter((s) => !REGEX_SECAO_GEO.test(s.titulo));
-  return semGeo.length > 0 ? semGeo : secoes;
+// Mesmos termos de cima, mas para apagar/substituir dentro do texto
+// corrido (não descartar a seção inteira). Frases mais específicas
+// primeiro, para não sobrar pedaço solto. Usa lookaround em vez de \b
+// porque o \b do JS não reconhece corretamente limite de palavra depois
+// de vogal acentuada (ex.: "Cambuí" no fim de frase não fechava com \b).
+function wb(pattern) {
+  return new RegExp(`(?<![\\p{L}\\p{N}_])${pattern}(?![\\p{L}\\p{N}_])`, "giu");
+}
+
+function removerGeoDoTexto(texto) {
+  let t = texto
+    // "bairro X" (com nome próprio) vira "setor" (mesmo gênero gramatical
+    // de "bairro", evita erro de concordância nos adjetivos ao redor).
+    // "bairro" sozinho, sem nome de lugar junto, não é tocado — é uma
+    // palavra genérica, não uma referência de cidade/bairro específico.
+    .replace(wb("bairro (Cambuí|Taquaral|Bar[ãa]o Geraldo|Vila Industrial)"), "setor")
+    .replace(wb("na região central de Campinas"), "nessa região")
+    .replace(wb("região central de Campinas"), "essa região")
+    .replace(wb("perto da Unicamp em Bar[ãa]o Geraldo"), "perto de universidades")
+    .replace(wb("em Bar[ãa]o Geraldo"), "")
+    .replace(wb("Bar[ãa]o Geraldo"), "esse setor")
+    .replace(wb("da Unicamp"), "de universidades")
+    .replace(wb("[àa] Unicamp"), "a universidade")
+    .replace(wb("Unicamp"), "universidade")
+    .replace(wb("no Cambuí"), "")
+    .replace(wb("no Taquaral"), "")
+    .replace(wb("na Vila Industrial"), "")
+    .replace(wb("Vila Industrial"), "esse setor")
+    .replace(wb("em Campinas"), "")
+    .replace(wb("de Campinas"), "")
+    .replace(wb("Cambuí"), "esse setor")
+    .replace(wb("Taquaral"), "esse setor")
+    .replace(wb("Campinas"), "")
+    .replace(wb("[Oo] esse setor"), "esse setor")
+    .replace(/\s{2,}/g, " ")
+    .replace(/\s+([,.;:!?])/g, "$1")
+    .replace(/,\s*,/g, ",")
+    .replace(/^[,;\s]+/, "")
+    .trim();
+  return t.charAt(0).toUpperCase() + t.slice(1);
+}
+
+// Alguns artigos são tão hiperlocais (ex.: comparação de bairros) que,
+// mesmo filtrando e limpando o texto, não sobra conteúdo genérico de
+// qualidade. Para esses, conteúdo próprio do carrossel, escrito do zero
+// sem citar nenhum lugar.
+const SECOES_OVERRIDE = {
+  "melhores-bairros-para-vender-marmitas-em-campinas": [
+    {
+      titulo: "O que faz uma região ter mais procura por marmita pronta",
+      corpo: "Regiões com escritórios, consultórios e um público de rotina corrida costumam ter mais procura constante por marmita pronta. Marmita fit e gourmet tendem a ter mais espaço onde o poder de compra sustenta um ticket médio mais alto.",
+    },
+    {
+      titulo: "Público universitário busca preço acessível e porção generosa",
+      corpo: "Perto de faculdades, o público costuma buscar marmita com preço mais em conta e porções generosas, priorizando praticidade e economia em vez de um cardápio muito elaborado. Boa demanda para entregas recorrentes durante a semana de aula.",
+    },
+    {
+      titulo: "Áreas com condomínios pedem embalagem mais caprichada",
+      corpo: "Regiões com muitos condomínios costumam ter público que busca praticidade no dia a dia sem abrir mão de qualidade — bom potencial para marmita fit e congelada premium, com embalagem mais cuidada e cardápio variado.",
+    },
+    {
+      titulo: "Regiões comerciais competem com restaurante por quilo",
+      corpo: "Vale mirar quem não tem tempo de voltar pra casa no horário de almoço. A concorrência com restaurante por quilo é maior nessas áreas, então o diferencial da marmita costuma ser vir pronta, sem fila e sem espera.",
+    },
+    {
+      titulo: "Comece em 1 ou 2 regiões antes de expandir",
+      corpo: "No início, focar em poucas regiões facilita a logística de entrega e ajuda a construir uma base de clientes fixos mais rápido. Expandir costuma fazer sentido só depois que a demanda na primeira região já está estável.",
+    },
+    {
+      titulo: "Como testar a demanda antes de produzir volume",
+      corpo: "Grupos de WhatsApp e Facebook locais são uma boa forma de testar o interesse antes de produzir um volume grande. Postar um cardápio simples com preço e perguntar quem teria interesse já dá uma ideia real da demanda.",
+    },
+  ],
+  "como-fazer-marmita-fit-em-casa-para-vender-no-cambui": [
+    {
+      titulo: "Escolha um público que já busca praticidade",
+      corpo: "Foque em atender quem já busca opções fit e valoriza praticidade no dia a dia — gente que trabalha fora e não tem tempo pra cozinhar. Isso facilita apresentar a marmita fit como solução, sem precisar convencer sobre o valor da alimentação saudável.",
+    },
+    {
+      titulo: "Passo a passo para montar o cardápio inicial",
+      corpo: "Escolha 3 a 4 opções de proteína para variar durante a semana. Defina porções fixas, com balança na primeira semana até pegar o olho. Inclua sempre um vegetal cozido ou salada como acompanhamento. Teste o cardápio em você mesmo antes de vender.",
+    },
+    {
+      titulo: "Como embalar para passar aparência profissional",
+      corpo: "Potes transparentes, bem fechados e com etiqueta simples e legível (nome do prato, data e validade) já elevam a percepção de qualidade sem custo alto. Evite embalagens amassadas ou com sobra de vapor.",
+    },
+    {
+      titulo: "Como definir um preço justo para o seu público",
+      corpo: "Comece com um preço justo pelo custo, teste a aceitação com os primeiros clientes e ajuste aos poucos, sem casas decimais complicadas. Clientes que valorizam apresentação e sabor costumam aceitar pagar um pouco mais por isso.",
+    },
+    {
+      titulo: "Defina tudo antes de começar a divulgar",
+      corpo: "Ter o cardápio, a embalagem e o preço definidos antes de divulgar evita ajustes constantes logo no início e passa mais confiança para os primeiros clientes decidirem repetir o pedido.",
+    },
+  ],
+};
+
+// Mostrado no selo do slide de capa — nunca o nome da categoria quando
+// ele cita cidade (ex.: "Marmitas em Campinas").
+const CATEGORIA_CARROSSEL = {
+  "Marmitas em Campinas": "Venda de Marmitas",
+};
+
+function obterSecoesCarrossel(slug, content) {
+  if (SECOES_OVERRIDE[slug]) return SECOES_OVERRIDE[slug];
+
+  const todas = parseSecoes(content);
+  const semGeo = todas.filter((s) => !REGEX_SECAO_GEO.test(s.titulo));
+  const base = semGeo.length >= 3 ? semGeo : todas;
+  if (semGeo.length < 3) {
+    console.log(
+      `AVISO ${slug} — poucas seções sem geo (${semGeo.length}); aplicando limpeza de texto nas seções originais. Considere adicionar um SECOES_OVERRIDE para esse artigo.`
+    );
+  }
+  return base.map((s) => ({
+    titulo: removerGeoDoTexto(s.titulo),
+    corpo: removerGeoDoTexto(s.corpo),
+  }));
 }
 
 async function baixarImagemBase64(url) {
@@ -511,20 +633,28 @@ async function gerarCarrosselDoArtigo(slug) {
 
   const raw = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(raw);
-  const secoes = filtrarSecoesGeo(parseSecoes(content)).slice(0, MAX_CONTENT_SLIDES);
+  const secoes = obterSecoesCarrossel(slug, content).slice(0, MAX_CONTENT_SLIDES);
   const cta = CTA_POR_CATEGORIA[data.categoria] || CTA_POR_CATEGORIA["Marmita Congelada"];
+  const categoriaExibida = CATEGORIA_CARROSSEL[data.categoria] || data.categoria;
+  const tituloCapa = data.titulo_carrossel || data.titulo;
 
   const outDir = path.join(OUTPUT_DIR, slug);
   fs.mkdirSync(outDir, { recursive: true });
+  // Limpa slides antigos antes de gerar: se o novo lote tiver menos slides
+  // que o anterior, um slide-N.jpg desatualizado (e possivelmente com
+  // cidade/bairro de uma versão anterior do script) ficaria órfão na pasta.
+  for (const arquivo of fs.readdirSync(outDir)) {
+    if (/^slide-\d+\.jpg$/.test(arquivo)) fs.unlinkSync(path.join(outDir, arquivo));
+  }
 
   const imagemBase64 = await baixarImagemBase64(data.imagem_capa);
 
   const slides = [];
-  slides.push(slideCapa({ imagemBase64, categoria: data.categoria, titulo: data.titulo }));
+  slides.push(slideCapa({ imagemBase64, categoria: categoriaExibida, titulo: tituloCapa }));
   secoes.forEach((s, i) => {
     slides.push(
       slideConteudo({
-        categoria: data.categoria,
+        categoria: categoriaExibida,
         secaoTitulo: s.titulo,
         secaoCorpo: s.corpo,
         pagina: i + 2,

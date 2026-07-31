@@ -14,6 +14,10 @@ export type Funil = "Topo" | "Meio" | "Fundo";
 
 export interface ArticleFrontmatter {
   titulo: string;
+  /** Título genérico (sem cidade/bairro) usado só no carrossel de Instagram,
+   * quando o título de SEO do artigo cita local (categoria "Marmitas em
+   * Campinas"). Não é exibido no blog. */
+  titulo_carrossel?: string;
   slug: string;
   data_publicacao: string;
   categoria: Categoria;

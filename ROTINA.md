@@ -82,6 +82,12 @@ texto e rode o script de novo até 100% OK.
 >      palavra_chave, angulo, funil, resumo, imagem_capa, cta_titulo,
 >      cta_subtitulo, cta_botao (os três últimos opcionais, mas prefira
 >      sempre preencher — ver seção "Banner de CTA" abaixo).
+>    - Se a categoria for `Marmitas em Campinas` (título cita cidade/bairro),
+>      preencha também `titulo_carrossel` com uma versão genérica/nacional
+>      do título, sem cidade nem bairro (ex.: título "Melhores Bairros para
+>      Vender Marmitas em Campinas" → `titulo_carrossel: "Como Escolher a
+>      Melhor Região para Vender Marmitas"`). Ver seção "Carrossel de
+>      Instagram" abaixo — é o que aparece na capa do carrossel.
 >    - `imagem_capa`: URL da Pollinations no formato
 >      `https://image.pollinations.ai/prompt/{prompt}?width=1024&height=683&nologo=true&model=flux`,
 >      com `{prompt}` em inglês, montado especificamente para o tema daquele
@@ -121,16 +127,34 @@ o futuro auto-post via API do Instagram, que exige `image_url` público).
 - `node scripts/gerar-carrossel.mjs <slug>` — gera para um artigo.
 - `node scripts/gerar-carrossel.mjs --all` — regenera para todos.
 
-**O carrossel nunca foca em cidade/bairro** — geolocalização (Campinas,
-Cambuí, Taquaral, Barão Geraldo etc.) é um recurso só do blog, para SEO
-local. O script filtra automaticamente qualquer seção `## ` cujo título
-mencione cidade/bairro antes de escolher os slides de conteúdo (função
-`filtrarSecoesGeo` em `gerar-carrossel.mjs`), então os slides ficam com
-conteúdo puro e genérico. Isso já é automático — **não precisa (e não deve)
-escrever nada geo-específico ao gerar o carrossel**, o próprio script cuida
-disso. Exceção: se um artigo inteiro for sobre bairros (ex.: "melhores
-bairros para vender em Campinas"), o script cai de volta para as seções
-originais, só para o carrossel não ficar vazio.
+**O carrossel é conteúdo nacional: nunca cita cidade nem bairro específico**
+(Campinas, Cambuí, Taquaral, Barão Geraldo, Vila Industrial, "região
+central", Unicamp) — nem no título da capa, nem no selo de categoria, nem
+no conteúdo dos slides. Isso vale só pro Instagram; no blog a
+geolocalização continua normalmente, é o que ajuda o SEO local. A palavra
+genérica "bairro" (sem nome próprio junto) não é problema — só o nome
+específico do lugar.
+
+Isso já é automático em `scripts/gerar-carrossel.mjs`, em três camadas:
+1. Seção cujo **título** cita cidade/bairro específico não vira slide
+   (`REGEX_SECAO_GEO`).
+2. Qualquer menção que sobrar no **corpo** de uma seção "boa" é substituída
+   por uma versão genérica (`removerGeoDoTexto` — ex.: "bairro Cambuí"
+   vira "setor", "em Campinas" é removido).
+3. Se um artigo for hiperlocal demais e sobrar pouco conteúdo genérico
+   (ex.: "melhores bairros para vender"), usa um `SECOES_OVERRIDE` com
+   conteúdo escrito à parte, sem citar nenhum lugar.
+
+**Não precisa (e não deve) se preocupar com isso ao gerar o carrossel** — o
+script cuida sozinho. O único ponto de atenção na hora de escrever o
+artigo: se o **título do artigo** (`titulo`) já cita cidade/bairro (comum
+na categoria `Marmitas em Campinas`, ex.: "Melhores Bairros para Vender
+Marmitas em Campinas"), preencha também `titulo_carrossel` no frontmatter
+com uma versão genérica/nacional desse título (ex.: "Como Escolher a
+Melhor Região para Vender Marmitas") — é o que aparece na capa do
+carrossel. Se não preencher, a capa usa o `titulo` normal mesmo (que pode
+citar a cidade), então **é obrigatório preencher `titulo_carrossel` para
+todo artigo da categoria "Marmitas em Campinas"**.
 
 O tom do CTA final segue a mesma lógica por categoria do banner do site
 (`CTA_POR_CATEGORIA` dentro do próprio script, espelhando
