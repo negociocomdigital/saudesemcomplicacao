@@ -151,56 +151,69 @@ function IconeIndice({ n }: { n: string }) {
 
 export default function FitLucrativoPage() {
   return (
-    <div className="mx-auto max-w-5xl px-6 py-12">
-      {/* Hero */}
-      <section className="grid items-center gap-10 md:grid-cols-2 md:gap-14">
-        <div>
-          <span className="tag-pill mb-5 w-fit">Método Fit Lucrativo</span>
-          <h1 className="mb-5 font-serif text-3xl leading-tight text-chumbo md:text-4xl">
-            Coma melhor, ganhe tempo de volta e, se quiser, transforme suas
-            marmitas em renda extra
-          </h1>
-          <p className="mb-7 text-chumbo-claro">
-            Um passo a passo simples para sair da bagunça na cozinha: menos
-            tempo perdido decidindo o que comer, mais controle da sua
-            alimentação — e um caminho real para vender marmita fit, se você
-            quiser lucrar com isso.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <a href={CHECKOUT_URL} className="btn-pill">
-              Quero começar agora
-            </a>
-            <a
-              href="#beneficios"
-              className="inline-flex items-center rounded-pill px-6 py-3 text-sm font-semibold text-salvia-escuro ring-1 ring-inset ring-salvia/40 transition-colors hover:bg-salvia/10"
+    <>
+      {/* Hero — imagem de fundo full-width, texto sobreposto */}
+      <section className="relative flex min-h-[560px] w-full items-center overflow-hidden md:min-h-[640px]">
+        <Image
+          src={HERO_IMAGE}
+          alt="Marmitas fit organizadas em potes de vidro, prontas para a semana"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(100deg, rgba(62,62,60,0.94) 0%, rgba(62,62,60,0.85) 40%, rgba(62,62,60,0.45) 70%, rgba(62,62,60,0.15) 100%)",
+          }}
+        />
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-6 py-16">
+          <div className="max-w-xl">
+            <span
+              className="mb-5 inline-block w-fit rounded-pill px-4 py-1 text-xs font-semibold uppercase tracking-wide"
+              style={{ color: "#c9dcc4", backgroundColor: "rgba(143,169,138,0.2)" }}
             >
-              Ver o que tem dentro
-            </a>
-          </div>
+              Método Fit Lucrativo
+            </span>
+            <h1 className="mb-5 font-serif text-3xl leading-tight text-white md:text-5xl">
+              Coma melhor, ganhe tempo de volta e, se quiser, transforme suas
+              marmitas em renda extra
+            </h1>
+            <p className="mb-7 text-white/80">
+              Um passo a passo simples para sair da bagunça na cozinha: menos
+              tempo perdido decidindo o que comer, mais controle da sua
+              alimentação — e um caminho real para vender marmita fit, se
+              você quiser lucrar com isso.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a href={CHECKOUT_URL} className="btn-pill">
+                Quero começar agora
+              </a>
+              <a
+                href="#beneficios"
+                className="inline-flex items-center rounded-pill px-6 py-3 text-sm font-semibold text-white ring-1 ring-inset ring-white/40 transition-colors hover:bg-white/10"
+              >
+                Ver o que tem dentro
+              </a>
+            </div>
 
-          <div className="mt-9 grid grid-cols-3 divide-x divide-black/10 border-y border-black/10 py-5">
-            {STATS.map((s) => (
-              <div key={s.legenda} className="text-center">
-                <p className="font-serif text-lg text-chumbo md:text-xl">
-                  {s.valor}
-                </p>
-                <p className="text-xs text-chumbo-claro">{s.legenda}</p>
-              </div>
-            ))}
+            <div className="mt-9 grid grid-cols-3 divide-x divide-white/25 border-y border-white/25 py-5">
+              {STATS.map((s) => (
+                <div key={s.legenda} className="text-center">
+                  <p className="font-serif text-lg text-white md:text-xl">
+                    {s.valor}
+                  </p>
+                  <p className="text-xs text-white/70">{s.legenda}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="card relative aspect-square w-full overflow-hidden">
-          <Image
-            src={HERO_IMAGE}
-            alt="Marmitas fit organizadas em potes de vidro, prontas para a semana"
-            fill
-            priority
-            className="object-cover"
-          />
         </div>
       </section>
 
-      {/* O que você ganha — intro */}
+      <div className="mx-auto max-w-5xl px-6 py-12">
+        {/* O que você ganha — intro */}
       <section id="beneficios" className="mt-24">
         <div className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
           <span className="tag-pill mb-4 w-fit mx-auto">O que você ganha</span>
@@ -386,6 +399,7 @@ export default function FitLucrativoPage() {
           }}
         />
       </section>
-    </div>
+      </div>
+    </>
   );
 }
