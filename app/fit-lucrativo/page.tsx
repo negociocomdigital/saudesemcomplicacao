@@ -153,7 +153,7 @@ export default function FitLucrativoPage() {
   return (
     <>
       {/* Hero — imagem de fundo full-width, texto sobreposto */}
-      <section className="relative flex min-h-[560px] w-full items-center overflow-hidden md:min-h-[640px]">
+      <section className="relative flex min-h-[640px] w-full items-center overflow-hidden md:min-h-[85vh]">
         <Image
           src={HERO_IMAGE}
           alt="Marmitas fit organizadas em potes de vidro, prontas para a semana"
