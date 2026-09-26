@@ -165,6 +165,32 @@ function removerGeoDoTexto(texto) {
 // qualidade. Para esses, conteúdo próprio do carrossel, escrito do zero
 // sem citar nenhum lugar.
 const SECOES_OVERRIDE = {
+  "vale-a-pena-vender-marmitas-em-campinas-no-bonfim": [
+    {
+      titulo: "Bairro residencial vende por relacionamento, não por impulso",
+      corpo: "Em bairros residenciais tradicionais, pouca gente compra marmita por impulso na rua. O que funciona é cliente fixo: gente que conhece quem cozinha, confia no preparo e pede toda semana.",
+    },
+    {
+      titulo: "Quem costuma comprar marmita nesse tipo de bairro",
+      corpo: "Idosos que moram sozinhos e não querem cozinhar todo dia, casais que trabalham fora e chegam tarde e famílias que querem resolver o almoço das crianças durante a semana.",
+    },
+    {
+      titulo: "Comida caseira ganha de comida diferente",
+      corpo: "Arroz, feijão, carne de panela, frango assado e legumes cozidos são o que esse público procura. Para idosos, uma linha de porção menor, de 300 g, e comida bem macia abre um público novo.",
+    },
+    {
+      titulo: "Kit semanal vende mais que marmita avulsa",
+      corpo: "Um kit de 5 marmitas congeladas por R$ 110 é mais fácil de vender que unidades soltas e garante que o cliente volte na semana seguinte. Com 10 clientes fixos, são 50 marmitas garantidas por semana.",
+    },
+    {
+      titulo: "Boca a boca vale mais que anúncio",
+      corpo: "Deixe amostras em padarias e mercadinhos do bairro, ofereça degustação para vizinhos, participe de grupos de moradores e dê uma marmita grátis por indicação. Confiança é o que faz esse cliente ficar por anos.",
+    },
+    {
+      titulo: "Entrega em dia fixo e rota única",
+      corpo: "Defina um dia fixo de entrega, como segunda de manhã, e monte uma rota só. Entregar tudo de uma vez corta custo de combustível e tempo, e o cliente já se organiza esperando o kit.",
+    },
+  ],
   "melhores-bairros-para-vender-marmitas-em-campinas": [
     {
       titulo: "O que faz uma região ter mais procura por marmita pronta",
