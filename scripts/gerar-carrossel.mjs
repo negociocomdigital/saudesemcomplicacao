@@ -239,6 +239,58 @@ const SECOES_OVERRIDE = {
       corpo: "Ter o cardápio, a embalagem e o preço definidos antes de divulgar evita ajustes constantes logo no início e passa mais confiança para os primeiros clientes decidirem repetir o pedido.",
     },
   ],
+  "vale-a-pena-vender-marmitas-em-campinas-no-castelo": [
+    {
+      titulo: "Bairro residencial compra por confiança",
+      corpo: "Em bairros de casas, com famílias estabelecidas e muitos aposentados, pouca gente compra marmita por impulso. Quando um vizinho aprova, a indicação corre rápido e vira cliente fixo.",
+    },
+    {
+      titulo: "Comida com gosto de almoço de casa",
+      corpo: "Marmita congelada caseira, com arroz, feijão e mistura, vende mais que pratos diferentões. Pacotes de 7 ou 10 unidades e porções de 300 a 350 g para idosos funcionam muito bem.",
+    },
+    {
+      titulo: "Divulgação de porta em porta",
+      corpo: "Onde o movimento de rua é baixo, aposte em grupos de moradores, cartazes na padaria e na farmácia e degustação para vizinhos. Três marmitas grátis para uma vizinha conhecida valem mais que panfleto.",
+    },
+    {
+      titulo: "Pacote vende mais que unidade",
+      corpo: "Uma marmita de 350 g costuma vender entre R$ 18 e R$ 22. Um pacote de 10 por R$ 190 é mais atraente que R$ 20 a unidade e garante a venda da semana inteira.",
+    },
+    {
+      titulo: "Teste a demanda em 3 semanas",
+      corpo: "Semana 1: degustação para 10 vizinhos. Semana 2: pacote de 5 com preço de lançamento. Semana 3: veja quantos voltaram. Se 4 clientes repetirem, a região tem demanda.",
+    },
+    {
+      titulo: "Entrega em dia fixo e rota curta",
+      corpo: "Defina um ou dois dias fixos de entrega, como terça e sexta. Numa região compacta, uma única saída atende vários clientes e o cliente já sabe quando esperar.",
+    },
+  ],
+  "como-vender-marmitas-em-campinas-para-quem-trabalha-no-polo-ciatec": [
+    {
+      titulo: "Polos de empresas são ótimos para marmita",
+      corpo: "Em polos empresariais afastados, os restaurantes exigem carro ou aplicativo e o trânsito come parte do intervalo. Uma marmita pronta, esquentada na copa, resolve o almoço sem estresse.",
+    },
+    {
+      titulo: "Comece pelas empresas menores",
+      corpo: "Empresas com 15 a 40 funcionários são mais fáceis de acessar. Fale com o RH ou o responsável pelo escritório e proponha uma degustação gratuita numa sexta-feira.",
+    },
+    {
+      titulo: "Cardápio leve e fixo",
+      corpo: "Frango grelhado com arroz integral, carne de panela com purê, uma opção vegetariana e um prato de conforto na sexta. Mantenha 5 opções fixas e troque só uma ou duas por mês.",
+    },
+    {
+      titulo: "Quanto dá para lucrar",
+      corpo: "Com custo de R$ 11 e venda a R$ 26, o lucro fica em R$ 15 por marmita. Com 30 marmitas por dia em duas empresas, são R$ 450 de lucro por dia útil.",
+    },
+    {
+      titulo: "Entrega até as 11h, sem atraso",
+      corpo: "Feche os pedidos até domingo, entregue tudo antes das 11h, etiquete cada marmita com o nome do cliente e combine com a recepção onde deixar a caixa térmica.",
+    },
+    {
+      titulo: "Pacote flexível para quem é híbrido",
+      corpo: "Quem vai ao escritório só alguns dias escolhe as datas de entrega no pedido. Nos dias em casa, leva marmitas congeladas extras na sexta, e você mantém o mesmo volume.",
+    },
+  ],
 };
 
 // Mostrado no selo do slide de capa — nunca o nome da categoria quando
