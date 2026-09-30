@@ -291,6 +291,58 @@ const SECOES_OVERRIDE = {
       corpo: "Quem vai ao escritório só alguns dias escolhe as datas de entrega no pedido. Nos dias em casa, leva marmitas congeladas extras na sexta, e você mantém o mesmo volume.",
     },
   ],
+  "vale-a-pena-vender-marmitas-em-campinas-no-jardim-ipaussurama": [
+    {
+      titulo: "Bairro popular compra preço justo e porção farta",
+      corpo: "Em bairros residenciais populosos, com muitas famílias e comércio de rua, o cliente valoriza comida caseira bem servida e entrega no horário. Cardápio sofisticado não é prioridade.",
+    },
+    {
+      titulo: "Comece pelo comércio da avenida",
+      corpo: "Funcionários de mercados, farmácias e lojas não podem sair para almoçar. Um único mercado pode render de 5 a 10 pedidos por dia.",
+    },
+    {
+      titulo: "Quanto cobrar e quanto sobra",
+      corpo: "Se o prato feito da região custa R$ 22, venda a marmita entregue por R$ 18 a R$ 20. Com custo de R$ 9 a R$ 10, 25 vendas por dia deixam perto de R$ 230 de lucro bruto.",
+    },
+    {
+      titulo: "O que vende mais",
+      corpo: "Arroz, feijão, bife acebolado e salada. Frango assado com farofa. Carne de panela com mandioca. E um prato especial na sexta para criar expectativa na semana.",
+    },
+    {
+      titulo: "Como conseguir os primeiros clientes",
+      corpo: "Leve 10 marmitas de degustação ao comércio, entregue o cardápio da semana e ofereça R$ 2 de desconto para quem fechar pacote de 5 dias.",
+    },
+    {
+      titulo: "Rota dividida, entrega sem atraso",
+      corpo: "Primeiro o comércio, entre 11h e 11h45. Depois as residências, até 12h30. Caixa térmica e etiqueta com o nome de cada cliente.",
+    },
+  ],
+  "vale-a-pena-vender-marmitas-em-campinas-no-jardim-leonor": [
+    {
+      titulo: "Quem compra marmita em bairro residencial",
+      corpo: "Casais que trabalham fora e chegam tarde, idosos que moram sozinhos e famílias que querem jantar pronto de segunda a quinta. Pouco comércio de refeição por perto ajuda a venda.",
+    },
+    {
+      titulo: "Marmita congelada funciona melhor",
+      corpo: "Na hora do almoço as pessoas estão fora de casa. O kit semanal resolve: você entrega uma vez por semana e o cliente tem a semana inteira garantida.",
+    },
+    {
+      titulo: "Quanto cobrar em bairro de renda média",
+      corpo: "Marmita avulsa de R$ 22 a R$ 28, kit de 5 por R$ 110 a R$ 130 e kit de 10 por R$ 200 a R$ 240. Com 12 kits de 10 por mês, o faturamento passa de R$ 2.400.",
+    },
+    {
+      titulo: "Boca a boca vale mais que rede social",
+      corpo: "Entre nos grupos de moradores, deixe cardápio em padarias e farmácias, ofereça degustação para 5 vizinhos e peça para cada cliente indicar um conhecido.",
+    },
+    {
+      titulo: "Entrega em rota curta e horário fixo",
+      corpo: "Separe as entregas por rua. Idosos costumam preferir receber de manhã, e casais preferem à noite. Uma rota de 40 minutos cobre um bairro pequeno.",
+    },
+    {
+      titulo: "Cardápio de comida de casa",
+      corpo: "Carne de panela com legumes, frango assado com arroz e feijão, escondidinho de carne e sopa nos meses frios. Mantenha 6 a 8 opções e troque uma por mês.",
+    },
+  ],
 };
 
 // Mostrado no selo do slide de capa — nunca o nome da categoria quando
