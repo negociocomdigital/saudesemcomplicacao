@@ -369,10 +369,18 @@ function obterSecoesCarrossel(slug, content) {
 }
 
 async function baixarImagemBase64(url) {
-  const res = await fetch(url);
-  const buf = Buffer.from(await res.arrayBuffer());
-  const contentType = res.headers.get("content-type") || "image/jpeg";
-  return `data:${contentType};base64,${buf.toString("base64")}`;
+  // A Pollinations às vezes responde 429/HTML quando recebe muitas requisições
+  // seguidas; sem checar isso, o satori quebra com "a is not iterable".
+  for (let tentativa = 1; tentativa <= 5; tentativa++) {
+    const res = await fetch(url);
+    const contentType = res.headers.get("content-type") || "";
+    if (res.ok && contentType.startsWith("image/")) {
+      const buf = Buffer.from(await res.arrayBuffer());
+      return `data:${contentType};base64,${buf.toString("base64")}`;
+    }
+    await new Promise((r) => setTimeout(r, 10000 * tentativa));
+  }
+  throw new Error(`imagem de capa indisponível: ${url}`);
 }
 
 function pillBadge(texto, { bg, color }) {
