@@ -165,6 +165,58 @@ function removerGeoDoTexto(texto) {
 // qualidade. Para esses, conteúdo próprio do carrossel, escrito do zero
 // sem citar nenhum lugar.
 const SECOES_OVERRIDE = {
+  "vale-a-pena-vender-marmitas-em-campinas-no-jardim-amazonas": [
+    {
+      titulo: "Quem compra marmita em bairro residencial",
+      corpo: "Casais que trabalham fora o dia todo, famílias com filhos pequenos, idosos que moram sozinhos e quem trabalha em home office. Esse público prefere comida de casa, sem invenção.",
+    },
+    {
+      titulo: "Quanto cobrar em bairro de classe média",
+      corpo: "Avulsa de 350 g de R$ 20 a R$ 25, kit de 5 por R$ 95 a R$ 115 e kit de 10 por R$ 180 a R$ 210. Com custo de R$ 9 por pote, 12 kits de 10 por mês rendem cerca de R$ 1.200 de lucro bruto.",
+    },
+    {
+      titulo: "Como conseguir os primeiros clientes",
+      corpo: "Entre no grupo de moradores, ofereça degustação para 5 vizinhos, deixe cardápio na padaria e na farmácia e dê uma marmita grátis para cada indicação. Os 10 primeiros clientes costumam vir em 3 a 6 semanas.",
+    },
+    {
+      titulo: "Entrega em dia fixo e rota por rua",
+      corpo: "Para famílias, domingo à tarde ou segunda à noite funcionam bem. Faça a rota sempre na mesma ordem: em um bairro compacto, 30 a 40 minutos cobrem até 15 entregas.",
+    },
+    {
+      titulo: "Cardápio de comida de casa",
+      corpo: "Carne de panela, frango assado com arroz e feijão, escondidinho, strogonoff de frango e uma opção fit. Mantenha de 6 a 8 pratos e troque um por mês.",
+    },
+    {
+      titulo: "Cuidados antes de começar",
+      corpo: "Confira as regras da prefeitura para vender comida feita em casa, etiquete todos os potes com data e validade e feche os pedidos até sexta para produzir só o que já foi vendido.",
+    },
+  ],
+  "marmitas-em-campinas-para-quem-trabalha-no-centro-como-organizar-a-semana-sem-comer-na-rua": [
+    {
+      titulo: "Quanto custa almoçar fora todo dia",
+      corpo: "Um almoço por quilo ou prato feito sai de R$ 25 a R$ 35. Em 22 dias úteis, são até R$ 770 por mês. Com marmita feita em casa, o mesmo mês sai entre R$ 180 e R$ 260.",
+    },
+    {
+      titulo: "O preparo da semana em 2 horas",
+      corpo: "Feijão na pressão, frango no forno, arroz, legumes no vapor por 3 a 4 minutos e montagem em fileira. Deixe 3 marmitas na geladeira e congele 2 para quinta e sexta.",
+    },
+    {
+      titulo: "Cardápio que aguenta o dia no trabalho",
+      corpo: "Arroz, feijão e frango assado; carne moída com abobrinha; escondidinho de frango; macarrão integral com carne; omelete de forno com batata-doce. Duas proteínas na semana já bastam.",
+    },
+    {
+      titulo: "Como levar no ônibus sem vazar",
+      corpo: "Use pote com tampa de travas e borracha de vedação, leve em bolsa térmica com gelo reutilizável, sempre em pé, e deixe molhos em um pote pequeno separado.",
+    },
+    {
+      titulo: "Quanto tempo a marmita aguenta fora da geladeira",
+      corpo: "Sem refrigeração, o limite seguro é de cerca de 2 horas. Na bolsa térmica com gelo, de 4 a 5 horas. Se o trabalho tiver geladeira, guarde assim que chegar.",
+    },
+    {
+      titulo: "Quanto tempo você ganha por semana",
+      corpo: "Sair, andar até o restaurante, pegar fila e voltar toma cerca de 50 minutos. Com marmita, são 20 minutos. Quase 2 horas e meia livres por semana.",
+    },
+  ],
   "vale-a-pena-vender-marmitas-em-campinas-no-bonfim": [
     {
       titulo: "Bairro residencial vende por relacionamento, não por impulso",
