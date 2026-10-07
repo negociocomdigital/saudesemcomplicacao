@@ -165,6 +165,32 @@ function removerGeoDoTexto(texto) {
 // qualidade. Para esses, conteúdo próprio do carrossel, escrito do zero
 // sem citar nenhum lugar.
 const SECOES_OVERRIDE = {
+  "vale-a-pena-vender-marmitas-em-campinas-na-vila-nova": [
+    {
+      titulo: "Bairro misto tem dois públicos",
+      corpo: "Moradores querem kit semanal congelado com comida de casa. Quem trabalha nas lojas e oficinas da região quer marmita do dia, com preço justo e entrega no horário do almoço.",
+    },
+    {
+      titulo: "Quanto cobrar em bairro de classe média",
+      corpo: "Marmita do dia de R$ 20 a R$ 24, kit de 5 congeladas por R$ 95 a R$ 110 e kit de 10 por R$ 175 a R$ 200. Com custo de R$ 9 a R$ 10 por pote, dá para passar de R$ 1.300 de margem por mês.",
+    },
+    {
+      titulo: "Como conseguir os primeiros clientes",
+      corpo: "Para moradores, degustação para 5 casas da sua rua. Para o comércio, leve 3 marmitas de amostra numa segunda e deixe o cardápio com o gerente. Uma loja com 5 funcionários já vale uma rota.",
+    },
+    {
+      titulo: "Cardápio que agrada os dois públicos",
+      corpo: "Frango assado com arroz e feijão, carne de panela, escondidinho, strogonoff de frango e uma opção fit. No kit congelado, nada de fritura nem salada crua.",
+    },
+    {
+      titulo: "Separe as entregas por público",
+      corpo: "Marmita do dia entre 11h30 e 12h30, com rota fixa pelas lojas. Kit congelado no domingo à tarde ou segunda à noite, na casa do cliente. Assim você não produz tudo no mesmo dia.",
+    },
+    {
+      titulo: "Cuidados antes de começar",
+      corpo: "Confira as regras da prefeitura para vender comida feita em casa, etiquete todos os potes com data e validade e feche os pedidos com antecedência para produzir só o que foi vendido.",
+    },
+  ],
   "vale-a-pena-vender-marmitas-em-campinas-no-jardim-amazonas": [
     {
       titulo: "Quem compra marmita em bairro residencial",
