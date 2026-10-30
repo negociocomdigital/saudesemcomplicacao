@@ -165,6 +165,58 @@ function removerGeoDoTexto(texto) {
 // qualidade. Para esses, conteúdo próprio do carrossel, escrito do zero
 // sem citar nenhum lugar.
 const SECOES_OVERRIDE = {
+  "vale-a-pena-vender-marmitas-em-campinas-no-parque-oziel": [
+    {
+      titulo: "Quem compra marmita em bairro popular",
+      corpo: "Quem trabalha fora o dia todo, famílias que querem folga da cozinha no domingo e idosos que moram sozinhos. Esse público valoriza preço justo e porção bem servida.",
+    },
+    {
+      titulo: "Quanto cobrar sem afastar o cliente",
+      corpo: "Uma faixa de R$ 15 a R$ 20 funciona bem. Com custo de R$ 7 a R$ 8 por marmita e 20 vendas por dia, o lucro bruto chega perto de R$ 3.000 no mês.",
+    },
+    {
+      titulo: "Cardápio com cara de almoço de casa",
+      corpo: "Arroz, feijão, bife acebolado e salada, frango assado com farofa, macarrão com carne moída e feijoada simples na sexta. Kit de 5 congeladas garante venda no começo da semana.",
+    },
+    {
+      titulo: "Divulgação boca a boca",
+      corpo: "Dê amostras para vizinhos e comerciantes, deixe cardápio impresso no mercadinho e no salão de beleza e monte uma lista de transmissão com o cardápio da semana.",
+    },
+    {
+      titulo: "Retirada com horário fixo",
+      corpo: "No começo, combine retirada na sua porta das 11h às 12h30. Entrega só para pedidos maiores, concentrando tudo na mesma rua ou quadra.",
+    },
+    {
+      titulo: "Erros que derrubam as vendas",
+      corpo: "Cobrar preço de bairro nobre, diminuir a porção para aumentar a margem, não ter horário fixo e mudar o cardápio todo dia.",
+    },
+  ],
+  "marmitas-em-campinas-para-quem-mora-na-vila-uniao-como-organizar-a-semana-com-freezer-pequeno": [
+    {
+      titulo: "Freezer pequeno tem limite real",
+      corpo: "O freezer da geladeira comum também guarda gelo e carne crua. Na prática, sobra lugar para 6 a 10 marmitas sem atrapalhar a circulação do ar frio.",
+    },
+    {
+      titulo: "O formato do pote muda tudo",
+      corpo: "Potes redondos cabem 5 a 6. Retangulares de 500 ml empilhados cabem 8 a 10. Saquinhos achatados para feijão e sopa cabem até 12, guardados em pé.",
+    },
+    {
+      titulo: "Dois preparos por semana",
+      corpo: "No domingo, faça 2 pratos e monte 8 marmitas: 3 na geladeira e 5 no freezer. Na quarta, um preparo rápido de 30 minutos completa a semana.",
+    },
+    {
+      titulo: "Pratos que ocupam menos espaço",
+      corpo: "Carne moída com legumes e arroz, frango desfiado com purê, escondidinho em pote raso e macarrão ao forno em porção individual.",
+    },
+    {
+      titulo: "Compre só o que vai cozinhar",
+      corpo: "Com freezer pequeno, não vale estocar carne crua. Compre o suficiente para os dois preparos e cozinhe no mesmo dia.",
+    },
+    {
+      titulo: "Erros que lotam o freezer",
+      corpo: "Encher até a porta, usar potes redondos, congelar comida ainda quente e esquecer de etiquetar com a data.",
+    },
+  ],
   "vale-a-pena-vender-marmitas-em-campinas-na-vila-nova": [
     {
       titulo: "Bairro misto tem dois públicos",
