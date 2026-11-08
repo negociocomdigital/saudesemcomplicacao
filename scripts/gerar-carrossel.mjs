@@ -165,6 +165,58 @@ function removerGeoDoTexto(texto) {
 // qualidade. Para esses, conteúdo próprio do carrossel, escrito do zero
 // sem citar nenhum lugar.
 const SECOES_OVERRIDE = {
+  "vender-marmitas-em-campinas-na-vila-proost-de-souza-como-fechar-os-primeiros-clientes-fixos": [
+    {
+      titulo: "Quem compra marmita no bairro",
+      corpo: "Casais que trabalham fora, idosos que moram sozinhos, funcionários do comércio de rua e quem mora de aluguel em quarto ou kitnet. Famílias preferem pacote congelado; o comércio quer marmita do dia.",
+    },
+    {
+      titulo: "Como conseguir os primeiros pedidos",
+      corpo: "Comece num raio de 1 km de casa: cardápio impresso em 50 casas, amostras em 3 ou 4 comércios e uma postagem por semana no grupo de moradores, sempre no mesmo dia.",
+    },
+    {
+      titulo: "De pedido avulso a cliente fixo",
+      corpo: "Ofereça pacote com preço menor que o avulso. Exemplo: avulsa a R$ 24, pacote de 10 congeladas por R$ 210. O cliente economiza R$ 30 e você garante a venda da semana.",
+    },
+    {
+      titulo: "Quanto rendem 15 clientes fixos",
+      corpo: "15 clientes com 10 marmitas por semana somam 150 potes. Com custo de R$ 10 e preço médio de R$ 21, o lucro bruto passa de R$ 1.600 por semana.",
+    },
+    {
+      titulo: "Entrega com dia e rota fixos",
+      corpo: "Defina um dia de entrega, faça a rota sempre na mesma ordem e use bolsa térmica com gelo. Nas primeiras semanas, dá para entregar a pé ou de bicicleta.",
+    },
+    {
+      titulo: "Erros que travam o crescimento",
+      corpo: "Divulgar para a cidade inteira antes de dominar o bairro, mudar o dia de entrega toda semana, cardápio com opções demais e não anotar quem comprou o quê.",
+    },
+  ],
+  "marmitas-em-campinas-no-jardim-sao-gabriel-como-organizar-a-semana-de-quem-trabalha-fora": [
+    {
+      titulo: "Por que cozinhar no domingo",
+      corpo: "Quem sai cedo e volta depois das 19h não tem energia para cozinhar todo dia. Um prato executivo perto do trabalho custa de R$ 30 a R$ 40; a marmita feita em casa sai por cerca de R$ 12.",
+    },
+    {
+      titulo: "Quantas marmitas preparar",
+      corpo: "Só almoço: 5 potes. Almoço e jantar: 10 potes. Segunda a quarta ficam na geladeira; quinta e sexta vão para o freezer e descongelam na geladeira na noite anterior.",
+    },
+    {
+      titulo: "A regra dos três grupos",
+      corpo: "Metade do pote com legumes, um quarto com proteína e um quarto com carboidrato. Faça duas proteínas diferentes no mesmo dia para não enjoar no meio da semana.",
+    },
+    {
+      titulo: "Tudo pronto em 2 horas",
+      corpo: "Comece pelo arroz e pela batata-doce, asse os legumes numa assadeira só, grelhe as proteínas e lave a louça enquanto tudo cozinha. Depois é só porcionar e fechar os potes.",
+    },
+    {
+      titulo: "Quanto tempo cada marmita dura",
+      corpo: "Na geladeira, de 3 a 4 dias em pote bem fechado. No freezer, até 3 meses. O que for comido depois de quarta vai direto para o congelador no mesmo dia.",
+    },
+    {
+      titulo: "Quanto dá para economizar",
+      corpo: "Almoço fora a R$ 32 por dia dá cerca de R$ 700 por mês. Marmita em casa fica perto de R$ 260. A diferença passa de R$ 400 por mês, só no almoço.",
+    },
+  ],
   "vale-a-pena-vender-marmitas-em-campinas-no-parque-oziel": [
     {
       titulo: "Quem compra marmita em bairro popular",
