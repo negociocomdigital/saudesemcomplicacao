@@ -165,6 +165,58 @@ function removerGeoDoTexto(texto) {
 // qualidade. Para esses, conteúdo próprio do carrossel, escrito do zero
 // sem citar nenhum lugar.
 const SECOES_OVERRIDE = {
+  "vale-a-pena-vender-marmitas-em-campinas-em-dia-de-jogo-da-ponte-preta-e-do-guarani": [
+    {
+      titulo: "Quem compra marmita em dia de jogo",
+      corpo: "Não é o torcedor. Quem compra é quem trabalha horas no entorno do estádio: seguranças, funcionários de bares, equipes de estacionamento e ambulantes que chegam cedo e não podem sair do posto.",
+    },
+    {
+      titulo: "Venda por encomenda, não na sorte",
+      corpo: "Chegar com 30 marmitas sem pedido é arriscado: com chuva ou público menor, você volta com metade. Feche com os encarregados das equipes durante a semana.",
+    },
+    {
+      titulo: "O que levar no cardápio",
+      corpo: "Comida que aguenta horas na bolsa térmica: arroz, feijão e carne de panela, macarrão com frango, escondidinho e uma opção fit. Leve talher descartável e guardanapo.",
+    },
+    {
+      titulo: "Quanto dá para ganhar",
+      corpo: "Cobrando de R$ 18 a R$ 22, com custo de R$ 9 por marmita, 25 unidades rendem uns R$ 250 a R$ 300 por jogo. Com 3 ou 4 jogos no mês, é um bom reforço no caixa.",
+    },
+    {
+      titulo: "Entregue com folga de horário",
+      corpo: "O trânsito em volta do estádio fecha cedo. Confirme os pedidos na véspera, entregue 3 horas antes da partida e receba tudo antes, via Pix.",
+    },
+    {
+      titulo: "Transforme o jogo em cliente fixo",
+      corpo: "Quem trabalha no bar ou no estacionamento do entorno está ali a semana toda. Deixe o cardápio semanal junto com o pedido e venda de terça a sexta.",
+    },
+  ],
+  "como-vender-marmitas-em-campinas-para-quem-mora-em-sumare-e-trabalha-na-cidade": [
+    {
+      titulo: "Quem é esse cliente",
+      corpo: "Mora numa cidade vizinha e passa de 40 minutos a mais de 1 hora no trajeto até o trabalho. Sai às 6h30, volta depois das 19h e gasta de R$ 25 a R$ 35 por dia com almoço.",
+    },
+    {
+      titulo: "Kit semanal em vez de entrega diária",
+      corpo: "Uma retirada por semana por cliente, produção concentrada num só dia e pagamento antecipado. O cliente leva o kit e guarda no freezer ou na geladeira do trabalho.",
+    },
+    {
+      titulo: "Ponto de retirada no caminho dele",
+      corpo: "Perto do terminal de ônibus, na saída da empresa ou num comércio parceiro do bairro onde ele mora. Horário fixo, como segunda das 7h às 8h, quase não tem falta.",
+    },
+    {
+      titulo: "Monte dois kits simples",
+      corpo: "Kit 5 para o almoço de segunda a sexta, de R$ 105 a R$ 115. Kit 10 para almoço e jantar, de R$ 200 a R$ 220. Inclua sempre uma opção fit e um prato com feijão.",
+    },
+    {
+      titulo: "Sempre congelado no trajeto",
+      corpo: "O kit passa até uma hora na bolsa. Entregue congelado, nunca só resfriado, e ofereça uma bolsa térmica simples na primeira compra.",
+    },
+    {
+      titulo: "Quanto dá para ganhar",
+      corpo: "Kit de 5 a R$ 110 com custo de R$ 10 por marmita deixa uns R$ 60 de margem. Com 15 clientes fixos, o lucro mensal fica perto de R$ 3.000 com um dia de produção.",
+    },
+  ],
   "vender-marmitas-em-campinas-na-vila-proost-de-souza-como-fechar-os-primeiros-clientes-fixos": [
     {
       titulo: "Quem compra marmita no bairro",
