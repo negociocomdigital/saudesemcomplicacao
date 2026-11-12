@@ -165,6 +165,58 @@ function removerGeoDoTexto(texto) {
 // qualidade. Para esses, conteúdo próprio do carrossel, escrito do zero
 // sem citar nenhum lugar.
 const SECOES_OVERRIDE = {
+  "vender-marmitas-em-campinas-no-jardim-ipiranga-como-montar-a-rota-de-entrega-da-semana": [
+    {
+      titulo: "Divida o bairro em blocos",
+      corpo: "Desenhe as ruas num caderno e separe em 3 ou 4 blocos de endereços próximos. Cada cliente novo já entra num bloco, e você sabe onde ele fica na rota.",
+    },
+    {
+      titulo: "Um horário fixo de entrega",
+      corpo: "Escolha uma janela só, como 10h30 às 11h30 para almoço, ou um dia fixo para marmitas congeladas da semana. Avise todos os clientes e não abra exceção.",
+    },
+    {
+      titulo: "Feche os pedidos na véspera",
+      corpo: "Corte os pedidos até as 20h do dia anterior. Separe as sacolas já na ordem da rota, com a primeira entrega por cima.",
+    },
+    {
+      titulo: "Comece pelo mais longe",
+      corpo: "Saia pelo bloco mais distante e volte em direção à sua casa. Se algo atrasar, os clientes mais perto ainda recebem no horário.",
+    },
+    {
+      titulo: "Quantas entregas por hora",
+      corpo: "Com blocos e sacolas separadas, dá para fazer de 15 a 20 entregas por hora. Com 5 marmitas congeladas por cliente, são até 100 marmitas numa única saída.",
+    },
+    {
+      titulo: "Cresça perto de quem já compra",
+      corpo: "Um cliente novo na mesma rua vale mais que dois espalhados. Ofereça R$ 5 de desconto para quem indicar um vizinho.",
+    },
+  ],
+  "marmitas-em-campinas-no-jardim-novo-cambui-como-organizar-a-semana-morando-em-apartamento-pequeno": [
+    {
+      titulo: "Cozinhe em duas etapas",
+      corpo: "Primeiro o forno: proteína e legumes juntos numa assadeira. Depois o fogão: arroz numa boca e feijão ou molho na outra. A bancada nunca fica lotada.",
+    },
+    {
+      titulo: "Receitas de uma panela só",
+      corpo: "Frango assado com batata e cenoura, carne moída com legumes, arroz com frango desfiado. Duas receitas por semana, 4 potes de cada, e você chega a 8 marmitas.",
+    },
+    {
+      titulo: "Potes retangulares e iguais",
+      corpo: "Pote redondo desperdiça espaço nos cantos. Potes retangulares de 500 ml, do mesmo modelo, empilham no armário e no freezer sem bagunça.",
+    },
+    {
+      titulo: "Congele deitado",
+      corpo: "Freezer de geladeira tem de 50 a 80 litros. Congele parte das porções em saco de congelamento, deitadas, e guarde em pé como livros na prateleira.",
+    },
+    {
+      titulo: "Geladeira até quarta, freezer depois",
+      corpo: "Na geladeira a marmita dura até 4 dias. As de quinta e sexta vão para o freezer e descem para a geladeira na noite anterior.",
+    },
+    {
+      titulo: "Louça e cheiro sob controle",
+      corpo: "Lave tudo enquanto o forno trabalha e, no fim, sobram só as assadeiras. Abra a janela desde o começo e prefira assar a fritar.",
+    },
+  ],
   "vale-a-pena-vender-marmitas-em-campinas-em-dia-de-jogo-da-ponte-preta-e-do-guarani": [
     {
       titulo: "Quem compra marmita em dia de jogo",
