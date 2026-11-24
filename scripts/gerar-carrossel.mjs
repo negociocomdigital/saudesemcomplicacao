@@ -165,6 +165,32 @@ function removerGeoDoTexto(texto) {
 // qualidade. Para esses, conteúdo próprio do carrossel, escrito do zero
 // sem citar nenhum lugar.
 const SECOES_OVERRIDE = {
+  "kafta-de-frango-no-forno-na-marmita-fit-como-fazer-12-espetinhos-para-a-semana": [
+    {
+      titulo: "O que vai na kafta",
+      corpo: "1 kg de peito de frango moído, 1 cebola ralada e bem espremida, hortelã, salsinha, cominho, páprica e 2 colheres de aveia fina para segurar a umidade.",
+    },
+    {
+      titulo: "Modele 12 espetinhos",
+      corpo: "Divida a massa em 12 bolas de cerca de 80 g. Com as mãos molhadas, aperte cada uma no palito formando um cilindro alongado.",
+    },
+    {
+      titulo: "Forno a 220 °C",
+      corpo: "Asse por 20 minutos em assadeira com papel-manteiga, virando na metade. Mais 5 minutos no grill dão cor sem secar o miolo.",
+    },
+    {
+      titulo: "Como montar o pote",
+      corpo: "Metade de acompanhamento, um quarto de kafta e um quarto de legumes. Arroz com lentilha, cuscuz ou batata-doce combinam bem.",
+    },
+    {
+      titulo: "Não deixe ressecar",
+      corpo: "Espere 20 minutos antes de tampar e mande 1 colher de molho de iogurte num potinho à parte. Ele devolve a suculência na hora de comer.",
+    },
+    {
+      titulo: "Custo e tempo",
+      corpo: "6 marmitas por cerca de R$ 50, pouco mais de R$ 8 cada. Em 1 hora tudo fica pronto: 4 dias na geladeira ou 2 meses no freezer.",
+    },
+  ],
   "vender-marmitas-em-campinas-no-jardim-ipiranga-como-montar-a-rota-de-entrega-da-semana": [
     {
       titulo: "Divida o bairro em blocos",
